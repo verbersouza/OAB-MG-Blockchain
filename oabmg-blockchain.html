@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Comissão de Blockchain, Criptoativos e Tokenização · OAB/MG</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c10;
+    --bg2: #0c1118;
+    --bg3: #111820;
+    --surface: rgba(255,255,255,0.03);
+    --border: rgba(255,255,255,0.07);
+    --border-accent: rgba(100,220,200,0.2);
+    --accent: #64dcc8;
+    --accent2: #3a9e8e;
+    --accent-glow: rgba(100,220,200,0.12);
+    --text: #e8edf2;
+    --text-muted: #6b7a8a;
+    --text-dim: #3d4a57;
+    --gold: #c9a96e;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Syne', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(100,220,200,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(100,220,200,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  section, nav, footer { position: relative; z-index: 1; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 48px; height: 72px;
+    background: rgba(8,12,16,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    transition: border-color 0.3s;
+  }
+  .nav-brand { display: flex; align-items: center; gap: 14px; }
+  .nav-badge {
+    width: 36px; height: 36px;
+    border: 1px solid var(--accent); border-radius: 6px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent);
+    box-shadow: 0 0 12px var(--accent-glow);
+  }
+  .nav-title { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); line-height: 1.3; }
+  .nav-title span { display: block; color: var(--text); }
+  .nav-links { display: flex; gap: 36px; list-style: none; }
+  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* HERO */
+  #hero {
+    min-height: 100vh; display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 48px 80px; position: relative; overflow: hidden;
+  }
+  .hero-glow {
+    position: absolute; width: 700px; height: 700px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(100,220,200,0.06) 0%, transparent 70%);
+    top: -200px; right: -200px; pointer-events: none;
+  }
+  .hero-glow-2 {
+    position: absolute; width: 400px; height: 400px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,169,110,0.05) 0%, transparent 70%);
+    bottom: 0; left: 100px; pointer-events: none;
+  }
+  .hero-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 32px;
+    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
+  }
+  .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+  .hero-h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(48px, 6vw, 88px);
+    font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; max-width: 800px;
+    opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
+  }
+  .hero-h1 em { font-style: italic; color: var(--accent); }
+  .hero-sub {
+    font-size: 16px; color: var(--text-muted); max-width: 520px;
+    margin-top: 28px; line-height: 1.7;
+    opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; margin-top: 48px;
+    opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+    background: var(--accent); color: var(--bg);
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+    border: none; cursor: pointer; transition: all 0.25s;
+  }
+  .btn-primary:hover { background: #7de8d4; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(100,220,200,0.25); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
+    background: transparent; color: var(--text);
+    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+    border: 1px solid var(--border); cursor: pointer; transition: all 0.25s;
+  }
+  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+  .hero-scroll {
+    position: absolute; bottom: 40px; left: 48px;
+    display: flex; align-items: center; gap: 12px;
+    font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em;
+    opacity: 0; animation: fadeUp 1s 1.2s forwards;
+  }
+  .scroll-line { width: 40px; height: 1px; background: var(--text-dim); position: relative; overflow: hidden; }
+  .scroll-line::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--accent); transform: translateX(-100%);
+    animation: slideLine 2s 1.5s ease-in-out infinite;
+  }
+
+  /* SECTION BASE */
+  section { padding: 100px 48px; }
+  .section-label {
+    font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
+    display: flex; align-items: center; gap: 12px;
+  }
+  .section-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--accent); }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(36px, 4vw, 56px); font-weight: 300; line-height: 1.1; max-width: 640px;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  /* TIMELINE */
+  #marco { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .timeline-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; flex-wrap: wrap; gap: 24px; }
+  .timeline-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-muted); max-width: 300px; line-height: 1.6; border-left: 2px solid var(--accent2); padding-left: 14px; }
+  .timeline { position: relative; display: flex; flex-direction: column; }
+  .timeline::before { content: ''; position: absolute; left: 80px; top: 0; bottom: 0; width: 1px; background: linear-gradient(to bottom, transparent, var(--border) 10%, var(--border) 90%, transparent); }
+  .tl-item { display: grid; grid-template-columns: 80px 1fr; padding: 28px 0; border-bottom: 1px solid var(--border); position: relative; transition: all 0.3s; }
+  .tl-item:last-child { border-bottom: none; }
+  .tl-item:hover .tl-content { transform: translateX(6px); }
+  .tl-year { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--text-dim); padding-top: 4px; text-align: right; transition: color 0.3s; }
+  .tl-item:hover .tl-year { color: var(--accent); }
+  .tl-dot { position: absolute; left: 77px; top: 36px; width: 7px; height: 7px; border-radius: 50%; background: var(--bg3); border: 1px solid var(--text-dim); transition: all 0.3s; }
+  .tl-item:hover .tl-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 12px rgba(100,220,200,0.5); }
+  .tl-item.highlight .tl-dot { background: var(--accent); border-color: var(--accent); box-shadow: 0 0 16px rgba(100,220,200,0.4); width: 10px; height: 10px; left: 75.5px; top: 34px; }
+  .tl-item.highlight .tl-year { color: var(--accent); }
+  .tl-content { padding-left: 32px; transition: transform 0.3s; }
+  .tl-title { font-weight: 600; font-size: 15px; color: var(--text); margin-bottom: 4px; }
+  .tl-item.highlight .tl-title { color: var(--accent); }
+  .tl-desc { font-size: 13px; color: var(--text-muted); }
+  .tl-res { display: inline-flex; gap: 6px; margin-top: 10px; flex-wrap: wrap; }
+  .res-tag { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 8px; border: 1px solid var(--border-accent); color: var(--accent); letter-spacing: 0.05em; background: var(--accent-glow); }
+
+  /* TOPICS */
+  #temas { background: var(--bg); }
+  .topics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 64px; border: 1px solid var(--border); background: var(--border); }
+  .topic-card { background: var(--bg); padding: 44px 40px; position: relative; overflow: hidden; transition: background 0.35s; }
+  .topic-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%); opacity: 0; transition: opacity 0.35s; }
+  .topic-card:hover { background: var(--bg2); }
+  .topic-card:hover::before { opacity: 1; }
+  .topic-number { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 24px; }
+  .topic-icon { font-size: 28px; margin-bottom: 16px; display: block; }
+  .topic-title { font-family: 'Cormorant Garamond', serif; font-size: 28px; font-weight: 400; line-height: 1.15; margin-bottom: 6px; }
+  .topic-subtitle { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
+  .topic-body { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 20px; }
+  .topic-alert { font-size: 13px; color: var(--text-muted); padding: 14px 16px; border-left: 2px solid var(--accent2); background: rgba(100,220,200,0.04); line-height: 1.6; margin-bottom: 20px; }
+  .topic-alert strong { color: var(--text); font-weight: 600; }
+  .topic-indicator { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); font-style: italic; padding-top: 16px; border-top: 1px solid var(--border); line-height: 1.5; }
+
+  /* GLOSSARY */
+  #glossario { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .glossary-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; margin-top: 64px; align-items: start; }
+  .glossary-intro { position: sticky; top: 100px; }
+  .glossary-intro-body { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-top: 28px; }
+  .glossary-source { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); margin-top: 28px; line-height: 1.6; border-left: 2px solid var(--border); padding-left: 12px; }
+  .accordion { display: flex; flex-direction: column; }
+  .acc-item { border-bottom: 1px solid var(--border); overflow: hidden; }
+  .acc-trigger { width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 20px 0; background: none; border: none; cursor: pointer; text-align: left; gap: 16px; }
+  .acc-term { font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; color: var(--text); transition: color 0.2s; }
+  .acc-trigger:hover .acc-term, .acc-item.open .acc-term { color: var(--accent); }
+  .acc-tag { font-family: 'DM Mono', monospace; font-size: 9px; padding: 2px 7px; border: 1px solid var(--border); color: var(--text-dim); letter-spacing: 0.05em; flex-shrink: 0; white-space: nowrap; }
+  .acc-item.open .acc-tag { border-color: var(--accent2); color: var(--accent); background: var(--accent-glow); }
+  .acc-icon { font-size: 18px; color: var(--text-dim); transition: transform 0.3s, color 0.2s; flex-shrink: 0; line-height: 1; }
+  .acc-item.open .acc-icon { transform: rotate(45deg); color: var(--accent); }
+  .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .acc-item.open .acc-body { max-height: 400px; }
+  .acc-def { font-size: 13px; color: var(--text-muted); line-height: 1.75; padding-bottom: 20px; }
+  .acc-def strong { color: var(--text); }
+  .acc-source { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); margin-top: 4px; padding-bottom: 20px; }
+
+  /* COMMISSION */
+  #comissao { background: var(--bg); overflow: hidden; position: relative; }
+  .commission-bg {
+    position: absolute; right: 0; top: 0; bottom: 0; width: 45%;
+    background: linear-gradient(to right, transparent, var(--bg2));
+    border-left: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: center; padding: 60px;
+  }
+  .commission-emblem { display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
+  .emblem-ring {
+    width: 160px; height: 160px; border-radius: 50%;
+    border: 1px solid var(--border-accent);
+    display: flex; align-items: center; justify-content: center; position: relative;
+    animation: pulseRing 4s ease-in-out infinite;
+  }
+  .emblem-ring::before { content: ''; position: absolute; inset: 12px; border-radius: 50%; border: 1px solid var(--border); }
+  .emblem-inner { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--accent); }
+  .emblem-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; }
+  .commission-content { max-width: 55%; padding-right: 80px; }
+  .commission-body { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-top: 32px; margin-bottom: 48px; }
+  .commission-ctas { display: flex; flex-direction: column; gap: 12px; max-width: 360px; }
+  .cta-link { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: 13px; font-weight: 500; transition: all 0.25s; background: var(--surface); }
+  .cta-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); transform: translateX(4px); }
+  .cta-icon { font-size: 16px; flex-shrink: 0; }
+  .cta-label { font-family: 'DM Mono', monospace; font-size: 9px; color: var(--text-dim); display: block; margin-top: 2px; letter-spacing: 0.08em; }
+
+  /* FOOTER */
+  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 48px 48px 32px; }
+  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 40px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 40px; }
+  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; line-height: 1.3; max-width: 260px; }
+  .footer-brand span { display: block; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 6px; }
+  .footer-links { display: flex; gap: 64px; flex-wrap: wrap; }
+  .footer-col h4 { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--accent); }
+  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 16px; }
+  .footer-disclaimer { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); line-height: 1.6; max-width: 480px; }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes slideLine { 0% { transform: translateX(-100%); } 50% { transform: translateX(100%); } 100% { transform: translateX(100%); } }
+  @keyframes pulseRing { 0%, 100% { box-shadow: 0 0 40px var(--accent-glow); } 50% { box-shadow: 0 0 60px rgba(100,220,200,0.18); } }
+
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 900px) {
+    nav { padding: 0 24px; }
+    .nav-links { display: none; }
+    section { padding: 72px 24px; }
+    #hero { padding: 120px 24px 60px; }
+    .topics-grid { grid-template-columns: 1fr; }
+    .glossary-grid { grid-template-columns: 1fr; }
+    .glossary-intro { position: static; }
+    .commission-bg { display: none; }
+    .commission-content { max-width: 100%; padding-right: 0; }
+    .footer-top { flex-direction: column; }
+    .hero-scroll { display: none; }
+    .timeline::before { left: 56px; }
+    .tl-item { grid-template-columns: 56px 1fr; }
+    .tl-dot { left: 53px; }
+    .tl-item.highlight .tl-dot { left: 51.5px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-brand">
+    <div class="nav-badge">OAB</div>
+    <div class="nav-title">
+      <span>Comissão de Blockchain, Criptoativos e Tokenização</span>
+      OAB Minas Gerais
+    </div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#marco">O Marco</a></li>
+    <li><a href="#temas">Temas</a></li>
+    <li><a href="#glossario">Glossário</a></li>
+    <li><a href="#comissao">A Comissão</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-tag">OAB/MG · Comissão Temática · 2025–2026</div>
+  <h1 class="hero-h1">
+    O Brasil regulou<br>o mercado de<br><em>criptoativos.</em><br>O direito não<br>pode ficar para trás.
+  </h1>
+  <p class="hero-sub">
+    A Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG reúne o que todo advogado precisa entender sobre o novo marco regulatório brasileiro.
+  </p>
+  <div class="hero-actions">
+    <a href="#temas" class="btn-primary">Explorar os temas →</a>
+    <a href="#comissao" class="btn-secondary">Fale com a Comissão</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Role para explorar
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="marco">
+  <div class="timeline-header reveal">
+    <div>
+      <div class="section-label">01 · O Marco Regulatório</div>
+      <h2 class="section-title">Uma regulação que levou<br>quase uma <em>década</em> para chegar</h2>
+    </div>
+    <div class="timeline-note">
+      A entrada em vigor das Resoluções BCB 519, 520 e 521 ocorreu em fevereiro de 2026. Empresas já em operação têm prazo de adequação de 270 dias.
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-year">2017</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Primeiro alerta regulatório</div>
+        <div class="tl-desc">Banco Central emite o Comunicado 31.379 — primeiras orientações sobre riscos de ativos virtuais.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2019</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Receita Federal entra em campo</div>
+        <div class="tl-desc">Instrução Normativa 1.888 estabelece obrigações de reporte fiscal para operações com criptoativos.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2022</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Marco Legal dos Criptoativos</div>
+        <div class="tl-desc">Lei 14.478/2022 — define ativos virtuais, cria a figura da PSAV e estabelece a base do framework regulatório.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2023</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">BCB torna-se o regulador</div>
+        <div class="tl-desc">Decreto 11.563 designa o Banco Central do Brasil como autoridade regulatória das PSAVs.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2023–24</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Consultas Públicas</div>
+        <div class="tl-desc">BCB conduz CPs 109, 110 e 111 — mercado, academia e sociedade civil contribuem com o texto regulatório.</div>
+      </div>
+    </div>
+    <div class="tl-item highlight reveal">
+      <div class="tl-year">Nov. 2025</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">O framework regulatório completo</div>
+        <div class="tl-desc">Banco Central publica as três resoluções que estruturam a operação do mercado de ativos virtuais no Brasil.</div>
+        <div class="tl-res">
+          <span class="res-tag">Res. 519 · Autorização</span>
+          <span class="res-tag">Res. 520 · Operação</span>
+          <span class="res-tag">Res. 521 · Câmbio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOT TOPICS -->
+<section id="temas">
+  <div class="reveal">
+    <div class="section-label">02 · Temas Quentes</div>
+    <h2 class="section-title">O que está na<br>pauta jurídica <em>agora</em></h2>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-card reveal">
+      <div class="topic-number">01</div>
+      <span class="topic-icon">⬡</span>
+      <h3 class="topic-title">Ativos Virtuais & PSAVs</h3>
+      <div class="topic-subtitle">Res. BCB 520 · Lei 14.478/2022</div>
+      <p class="topic-body">A Resolução BCB 520 define três modalidades de prestadoras — intermediárias, custodiantes e corretoras. Cada modalidade tem escopo fechado: a PSAV só pode exercer as atividades que a norma expressamente autoriza.</p>
+      <div class="topic-alert"><strong>Prazo em curso.</strong> Empresas em operação antes de fevereiro de 2026 têm 270 dias para solicitar autorização ao BCB. Quem não estava em operação não pode iniciar atividades sem autorização prévia.</div>
+      <div class="topic-indicator">→ Modelagem societária, autorização e enquadramento de atividades são temas com alta complexidade casuística.</div>
+    </div>
+    <div class="topic-card reveal">
+      <div class="topic-number">02</div>
+      <span class="topic-icon">◈</span>
+      <h3 class="topic-title">Stablecoins</h3>
+      <div class="topic-subtitle">Res. BCB 520 · PL 4308</div>
+      <p class="topic-body">O BCB define stablecoin como ativo virtual referenciado em moeda fiduciária, com reserva em moeda ou títulos públicos do governo emissor. Existem ao menos quatro tipos no mercado — a regulação brasileira atual cobre apenas um.</p>
+      <div class="topic-alert"><strong>Regulação incompleta.</strong> Ainda não há norma específica de emissão de stablecoins no Brasil. O PL 4308, em tramitação, pode alterar esse cenário. Há debate aberto sobre incidência de IOF em operações incluídas no mercado de câmbio.</div>
+      <div class="topic-indicator">→ Tema em construção normativa. Atuação nessa área exige acompanhamento legislativo ativo.</div>
+    </div>
+    <div class="topic-card reveal">
+      <div class="topic-number">03</div>
+      <span class="topic-icon">◇</span>
+      <h3 class="topic-title">RWA · Real World Assets</h3>
+      <div class="topic-subtitle">CVM · BCB · Regulação Setorial</div>
+      <p class="topic-body">Tokenização de ativos do mundo real — imóveis, recebíveis, commodities, títulos — em representação digital em blockchain. No Brasil, a intersecção regulatória envolve CVM, BCB e, a depender do ativo, reguladores setoriais específicos.</p>
+      <div class="topic-alert"><strong>Marco ainda difuso.</strong> Não há norma única para RWA no Brasil. A classificação do token como valor mobiliário (CVM) ou ativo virtual (BCB) define todo o regime jurídico aplicável — e essa linha ainda não está completamente traçada.</div>
+      <div class="topic-indicator">→ Estruturação jurídica de operações com RWA exige análise multidisciplinar e caso a caso.</div>
+    </div>
+    <div class="topic-card reveal">
+      <div class="topic-number">04</div>
+      <span class="topic-icon">⬡</span>
+      <h3 class="topic-title">BaaS · Blockchain as a Service</h3>
+      <div class="topic-subtitle">PSR · Res. BCB 520</div>
+      <p class="topic-body">Modelos de negócio que oferecem infraestrutura blockchain como serviço. A Resolução 520 cria a figura do Prestador de Serviços Relevantes (PSR) — categoria que pode enquadrar esses modelos sem exigir licença de PSAV, mas com requisitos próprios.</p>
+      <div class="topic-alert"><strong>Distinção crítica.</strong> A linha entre PSR e PSAV impacta diretamente as obrigações regulatórias, o capital exigido e a responsabilidade perante o BCB. Provedores de liquidez e formadores de mercado foram explicitamente qualificados como PSR — não como PSAV.</div>
+      <div class="topic-indicator">→ Enquadramento depende da análise concreta das atividades efetivamente prestadas.</div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOSSARY -->
+<section id="glossario">
+  <div class="glossary-grid">
+    <div class="glossary-intro reveal">
+      <div class="section-label">03 · Glossário</div>
+      <h2 class="section-title">Os termos que você precisa <em>dominar</em></h2>
+      <p class="glossary-intro-body">O vocabulário regulatório e tecnológico de criptoativos é específico e tem consequências jurídicas diretas. Cada definição abaixo é extraída das normas vigentes ou de conceitos técnicos consolidados — não de interpretações de mercado.</p>
+      <div class="glossary-source">
+        Fontes normativas: Lei 14.478/2022<br>
+        Res. BCB 519, 520 e 521 · Decreto 11.563/2023<br>
+        Parecer CVM 40/2022 · Padrão GAFI/FATF
+      </div>
+    </div>
+
+    <div class="accordion reveal">
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Blockchain / DLT</span>
+          <span class="acc-tag">Tecnologia</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Blockchain é um tipo de Tecnologia de Registros Distribuídos (DLT — Distributed Ledger Technology): sistema de registro compartilhado, imutável e descentralizado, organizado em blocos encadeados. A regulação brasileira usa o termo "sistema baseado na tecnologia de registros distribuídos ou similar" para abranger blockchain e outras arquiteturas DLT.</div>
+          <div class="acc-source">Res. BCB 520, Art. 2º</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Token</span>
+          <span class="acc-tag">Tecnologia</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Unidade digital registrada em uma DLT que representa um direito, ativo, valor ou funcionalidade. Pode assumir diferentes naturezas jurídicas conforme sua finalidade: de pagamento, de investimento (valor mobiliário), de utilidade ou híbrido. A classificação jurídica do token é o ponto de partida para determinar qual regulador e qual norma se aplicam.</div>
+          <div class="acc-source">Lei 14.478/2022 · Parecer CVM 40/2022</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Tokenização</span>
+          <span class="acc-tag">Tecnologia</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Processo de representar digitalmente, em uma DLT, direitos sobre ativos do mundo real (imóveis, recebíveis, obras de arte, títulos) ou ativos nativamente digitais. A tokenização não cria um novo ativo — ela cria uma representação digital de direitos preexistentes, o que exige identificar qual regime jurídico governa o ativo subjacente para determinar as obrigações regulatórias aplicáveis.</div>
+          <div class="acc-source">Conceito operacional · RWA</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">NFT</span>
+          <span class="acc-tag">Ativo Virtual</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Non-Fungible Token — token não fungível, com características únicas que o distinguem de outros tokens. Para fins da regulação brasileira, o enquadramento do NFT como ativo virtual depende de sua finalidade: se utilizado para pagamento ou investimento, submete-se à Resolução BCB 520. A mera unicidade do token não o exclui do regime regulatório.</div>
+          <div class="acc-source">Res. BCB 520, Art. 3º · Lei 14.478/2022</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Mecanismo de Consenso</span>
+          <span class="acc-tag">Tecnologia</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Conjunto de regras para validação de registros em uma DLT. Os dois principais são o <strong>Proof of Work</strong> (Bitcoin — baseado em poder computacional) e o <strong>Proof of Stake</strong> (Ethereum — baseado em bloqueio de tokens). A escolha do mecanismo tem implicações jurídicas diretas, especialmente para enquadramento de mineração e staking.</div>
+          <div class="acc-source">Res. BCB 520, Anexo</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Chave Privada e Carteira</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">A <strong>chave privada</strong> é o mecanismo de assinatura criptográfica que autentica transações — quem controla a chave controla o ativo. A <strong>carteira</strong> é o mecanismo de acesso e gestão de ativos em uma DLT: pode ser fria (offline), quente (online) ou morna (intermediária). Custodiar ativos virtuais é, essencialmente, custodiar chaves privadas.</div>
+          <div class="acc-source">Res. BCB 520, Art. 2º, IV–VIII</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Ativo Virtual</span>
+          <span class="acc-tag">Lei 14.478</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Representação digital de valor que pode ser negociada ou transferida eletronicamente e usada para pagamento ou investimento. Não inclui moeda fiduciária, moeda eletrônica nem ativos financeiros já regulados pelo CMN, BCB ou CVM.</div>
+          <div class="acc-source">Lei 14.478/2022 · Res. BCB 520</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">PSAV</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Prestadora de Serviços de Ativos Virtuais. Gênero que abrange as SPSAVs (sociedades novas) e as entidades já autorizadas pelo BCB (bancos, DTVMs, CTVMs, corretoras de câmbio).</div>
+          <div class="acc-source">Res. BCB 520, Art. 1º</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">SPSAV</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Sociedade Prestadora de Serviços de Ativos Virtuais. Empresa nova, constituída exclusivamente para operar no mercado de ativos virtuais. Precisa de autorização prévia do BCB para iniciar atividades — diferente das entidades já autorizadas (bancos, DTVMs, CTVMs), que seguem rito próprio de comunicação ou habilitação.</div>
+          <div class="acc-source">Res. BCB 520</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">PSR</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Prestador de Serviços Relevantes. Entidade que fornece serviços que afetam a operação da PSAV ou os direitos dos usuários — como custódia técnica, liquidez e tecnologia. Não precisa de licença de PSAV, mas possui requisitos próprios. Provedores de liquidez e formadores de mercado foram explicitamente enquadrados nesta categoria.</div>
+          <div class="acc-source">Res. BCB 520, Arts. 32–33</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Modalidades de PSAV</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">São três: <strong>Intermediária</strong> (compra, venda, troca e administração de carteiras), <strong>Custodiante</strong> (guarda e controle das chaves privadas dos clientes) e <strong>Corretora de Ativos Virtuais</strong> (reúne intermediação e custódia). Cada modalidade tem escopo fechado de atividades permitidas.</div>
+          <div class="acc-source">Res. BCB 520, Cap. X</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Stablecoin</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Para fins regulatórios brasileiros: ativo virtual referenciado em moeda fiduciária, cuja reserva deve ser formada por moeda fiduciária ou títulos públicos emitidos pelo governo que emite essa moeda. A regulação atual abrange apenas esse tipo — existem ao menos quatro tipos de stablecoin no mercado.</div>
+          <div class="acc-source">Res. BCB 520</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Staking</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Mecanismo pelo qual ativos virtuais são bloqueados em um protocolo DLT para participar da validação de transações via Proof of Stake. A Res. 520 define staking de forma restrita — modalidades como delegated proof of stake ficam fora da definição regulatória. A SPSAV pode realizar staking com ativos de clientes, observadas as regras de segregação patrimonial.</div>
+          <div class="acc-source">Res. BCB 520, Art. 2º, XVI</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Smart Contract</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Programa projetado e executado por meio de algoritmo computacional que promove a automatização de funções. A regulação corretamente evita o termo "contrato" — não reúne os elementos essenciais de um contrato no sentido jurídico clássico, pois não lida com conceitos indeterminados.</div>
+          <div class="acc-source">Res. BCB 520, Art. 2º, IX</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Airdrop</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Distribuição de ativos virtuais a usuários, geralmente vinculada ao cumprimento de requisitos ou participação em protocolos. A Resolução 520 corrigiu a definição anterior — airdrop não é necessariamente uma estratégia de marketing.</div>
+          <div class="acc-source">Res. BCB 520, Art. 2º, I</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Segregação Patrimonial</span>
+          <span class="acc-tag">Res. 520</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Separação obrigatória entre os ativos dos clientes e os ativos próprios da PSAV. É vedado à PSAV usar ativos de clientes para operações próprias. Exceções: operações de staking e cobertura emergencial de liquidez, limitada a 5% do total de ativos dos clientes.</div>
+          <div class="acc-source">Res. BCB 520, Arts. 28–31</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Mercado de Câmbio e VAs</span>
+          <span class="acc-tag">Res. 521</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">A Resolução 521 incluiu pagamentos e transferências internacionais com ativos virtuais no mercado de câmbio brasileiro. Essa inclusão não implica, por si só, incidência de IOF sobre stablecoins — há distinção relevante entre a operação cambial e o ativo em si.</div>
+          <div class="acc-source">Res. BCB 521</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">Período de Transição</span>
+          <span class="acc-tag">Res. 519</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Empresas já em operação antes de fevereiro de 2026 têm prazo de 270 dias para solicitar autorização ao BCB. Empresas que não estavam em operação não podem iniciar atividades sem autorização prévia. O processo de autorização pode levar de 12 a 36 meses.</div>
+          <div class="acc-source">Res. BCB 519, Art. 88</div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-trigger" onclick="toggleAcc(this)">
+          <span class="acc-term">GAFI / FATF</span>
+          <span class="acc-tag">Internacional</span>
+          <span class="acc-icon">+</span>
+        </button>
+        <div class="acc-body">
+          <div class="acc-def">Grupo de Ação Financeira Internacional — organismo intergovernamental que define padrões globais de prevenção à lavagem de dinheiro e financiamento ao terrorismo. A regulação brasileira está alinhada à Recomendação 15 do GAFI, que inclui ativos virtuais e PSAVs no regime de PLD/FT.</div>
+          <div class="acc-source">FATF R.15 · Res. BCB 520</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMMISSION -->
+<section id="comissao">
+  <div class="commission-bg">
+    <div class="commission-emblem">
+      <div class="emblem-ring">
+        <div class="emblem-inner">⬡</div>
+      </div>
+      <div class="emblem-label">OAB · Minas Gerais</div>
+    </div>
+  </div>
+  <div class="commission-content reveal">
+    <div class="section-label">04 · A Comissão</div>
+    <h2 class="section-title">Conhecimento jurídico<br>na fronteira <em>da inovação</em></h2>
+    <p class="commission-body">A Comissão de Blockchain, Criptoativos e Tokenização é um órgão temático da OAB/MG dedicado ao estudo, à difusão e ao debate sobre o direito aplicado a tecnologias distribuídas. Acompanha a evolução normativa, produz conteúdo técnico e promove formação continuada para advogados que atuam ou pretendem atuar nessa área.</p>
+    <div class="commission-ctas">
+      <a href="mailto:comissao.blockchain@oabmg.org.br" class="cta-link">
+        <span class="cta-icon">✉</span>
+        <div>Fale com a Comissão<span class="cta-label">Contato institucional · OAB/MG</span></div>
+      </a>
+      <a href="https://www.oabmg.org.br" target="_blank" class="cta-link">
+        <span class="cta-icon">↗</span>
+        <div>Eventos e Agenda<span class="cta-label">Acompanhe nossas atividades</span></div>
+      </a>
+      <a href="https://www.bcb.gov.br" target="_blank" class="cta-link">
+        <span class="cta-icon">⬡</span>
+        <div>Fontes Oficiais<span class="cta-label">BCB · CVM · Planalto</span></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      Comissão de Blockchain,<br>Criptoativos e Tokenização
+      <span>OAB Minas Gerais · 2026</span>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Normas</h4>
+        <ul>
+          <li><a href="https://www.planalto.gov.br/ccivil_03/_ato2019-2022/2022/Lei/L14478.htm" target="_blank">Lei 14.478/2022</a></li>
+          <li><a href="https://www.bcb.gov.br" target="_blank">Resolução BCB 519</a></li>
+          <li><a href="https://www.bcb.gov.br" target="_blank">Resolução BCB 520</a></li>
+          <li><a href="https://www.bcb.gov.br" target="_blank">Resolução BCB 521</a></li>
+          <li><a href="https://www.planalto.gov.br" target="_blank">Decreto 11.563/2023</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Institucional</h4>
+        <ul>
+          <li><a href="https://www.oabmg.org.br" target="_blank">OAB/MG</a></li>
+          <li><a href="#comissao">A Comissão</a></li>
+          <li><a href="#marco">O Marco Regulatório</a></li>
+          <li><a href="#temas">Temas Quentes</a></li>
+          <li><a href="#glossario">Glossário</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-disclaimer">Este material tem caráter informativo e educacional, produzido pela Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG. Não constitui parecer jurídico nem substitui consulta profissional especializada.</div>
+    <div class="footer-copy">© 2026 OAB · Minas Gerais</div>
+  </div>
+</footer>
+
+<script>
+  function toggleAcc(btn) {
+    const item = btn.closest('.acc-item');
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.acc-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').style.borderBottomColor =
+      window.scrollY > 60 ? 'rgba(100,220,200,0.1)' : 'rgba(255,255,255,0.07)';
+  });
+</script>
+</body>
+</html>
