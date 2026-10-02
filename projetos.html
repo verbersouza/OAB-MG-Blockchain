@@ -251,6 +251,68 @@
   .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 190; backdrop-filter: blur(4px); }
   .mobile-overlay.open { display: block; }
   @media (max-width: 900px) { .hamburger { display: flex; } .mobile-menu { display: flex; } }
+
+  /* episódios: 4 colunas, retrato redondo */
+  .episodes { grid-template-columns: repeat(4, 1fr); }
+  .ep { padding: 0 0 32px; display: flex; flex-direction: column; }
+  .ep-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 36px 24px 28px; min-height: 322px; justify-content: flex-start; border-bottom: 1px solid var(--border); }
+  .ep-avatar { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; object-position: center 18%; flex: none; border: 1px solid var(--border-accent); box-shadow: 0 0 0 6px var(--accent-glow); filter: grayscale(1) contrast(1.05); opacity: .9; transition: filter .4s, opacity .4s; }
+  .ep:hover .ep-avatar { filter: none; opacity: 1; }
+  .ep-who .name { font-size: 17px; font-weight: 600; color: var(--text); line-height: 1.3; }
+  .ep-who .role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 6px; line-height: 1.6; max-width: 240px; margin-left: auto; margin-right: auto; }
+  .ep-body { padding: 28px 28px 0; display: flex; flex-direction: column; flex: 1; }
+  .ep-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
+  .ep-meta .ep-num { margin: 0; }
+  .ep-dur { position: static; }
+  .ep-title { font-size: 26px; }
+  .ep-desc { font-size: 13.5px; }
+  .ep-foot { margin-top: auto; padding-top: 18px; justify-content: flex-start; }
+  @media (max-width: 1200px) { .episodes { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 900px) { .episodes { grid-template-columns: 1fr; } }
+  /* cabeçalho da série */
+  #serie { padding: 72px 48px 100px; }
+  .serie-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .serie-head .section-label { margin-bottom: 14px; }
+  .serie-head .section-title { max-width: none; font-size: clamp(32px, 3.6vw, 48px); white-space: nowrap; }
+  .serie-note { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-align: right; line-height: 1.8; }
+  .serie-note b { color: var(--accent); font-weight: 400; }
+  .episodes { margin-top: 40px; }
+  @media (max-width: 900px) { #serie { padding: 56px 24px 72px; } .serie-head .section-title { white-space: normal; } .serie-note { text-align: left; } }
+  .serie-lead { max-width: 460px; font-size: 14.5px; line-height: 1.7; color: var(--text-muted); }
+  .serie-lead strong { color: var(--text); font-weight: 600; }
+  @media (max-width: 900px) { .serie-lead { max-width: none; } }
+  .serie-head { display: block; padding-bottom: 36px; }
+  .serie-head .section-label { margin-bottom: 22px; }
+  .serie-lead { max-width: 920px; font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 300; line-height: 1.4; color: var(--text-muted); }
+  .serie-lead strong { color: var(--text); font-weight: 400; }
+  /* mediador */
+  .mediador { display: flex; align-items: center; gap: 36px; padding: 32px 36px; background: var(--bg2); border: 1px solid var(--border); margin-top: 40px; }
+  .med-avatar { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; object-position: center 22%; flex: none; border: 1px solid var(--border-accent); box-shadow: 0 0 0 6px var(--accent-glow); filter: grayscale(1) contrast(1.05); opacity: .92; }
+  .med-label, .convidados-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
+  .med-name { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 400; line-height: 1.15; margin: 8px 0 10px; }
+  .med-role { font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.8; letter-spacing: 0.04em; color: var(--text-muted); max-width: 640px; }
+  .convidados-label { margin: 36px 0 14px; color: var(--text-muted); }
+  .episodes { margin-top: 0; }
+  @media (max-width: 700px) { .mediador { flex-direction: column; text-align: center; padding: 28px 20px; gap: 22px; } }
+  /* mediador ao lado do texto */
+  .serie-head { display: flex; align-items: center; justify-content: space-between; gap: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
+  .serie-text { flex: 1; min-width: 0; }
+  .serie-head .serie-lead { max-width: 760px; }
+  .mediador { flex: 0 0 auto; width: 420px; display: flex; align-items: center; gap: 22px; padding: 22px 24px; margin: 0; background: var(--bg2); border: 1px solid var(--border); }
+  .med-avatar { width: 96px; height: 96px; box-shadow: 0 0 0 4px var(--accent-glow); }
+  .med-label { font-size: 10px; }
+  .med-name { font-size: 26px; margin: 4px 0 8px; }
+  .med-role { font-size: 10px; line-height: 1.7; letter-spacing: 0.03em; }
+  .episodes { margin-top: 40px; }
+  @media (max-width: 1100px) { .serie-head { flex-direction: column; align-items: flex-start; gap: 32px; } .mediador { width: 100%; max-width: 480px; } }
+  /* card do mediador ampliado */
+  .mediador { width: clamp(470px, 36vw, 640px); gap: 34px; padding: 34px 38px; }
+  .med-avatar { width: 172px; height: 172px; box-shadow: 0 0 0 6px var(--accent-glow); }
+  .med-label { font-size: 11px; }
+  .med-name { font-size: clamp(30px, 2.4vw, 40px); margin: 6px 0 12px; }
+  .med-role { font-size: 12px; line-height: 1.85; letter-spacing: 0.03em; }
+  @media (max-width: 1100px) { .mediador { width: 100%; max-width: 560px; } }
+  @media (max-width: 560px) { .mediador { flex-direction: column; text-align: center; padding: 28px 20px; } .med-avatar { width: 140px; height: 140px; } }
 </style>
 </head>
 <body>
@@ -324,21 +386,35 @@
 
 <!-- SERIES -->
 <section id="serie">
-  <div class="section-label">A série</div>
-  <h2 class="section-title">Quatro temas. Quatro <em>especialistas</em>.</h2>
+  <div class="serie-head">
+    <div class="serie-text">
+      <div class="section-label">A série</div>
+      <p class="serie-lead"><strong>Quatro episódios de 30 minutos</strong> sobre o ecossistema de ativos virtuais: dos fundamentos da tecnologia descentralizada à evolução histórica da regulação, passando por stablecoins e pagamentos, compliance e o novo regime de autorização do Banco Central.</p>
+    </div>
+    <aside class="mediador">
+      <img class="med-avatar" src="/assets/verber.jpg" alt="Verber Souza">
+      <div class="med-info">
+        <div class="med-label">Mediação</div>
+        <div class="med-name">Verber Souza</div>
+        <div class="med-role">Vice-Presidente da Comissão de Blockchain da OAB/MG<br>Head de Digital Assets<br>Co-founder, Blockchain na Escola<br>Blockchain researcher</div>
+      </div>
+    </aside>
+  </div>
 
   <div class="episodes">
 
     <!-- 01 -->
+
     <article class="ep reveal">
-      <div class="ep-media">
-        <img src="/assets/lucas.jpg" alt="Lucas Carapiá">
-        <div class="ep-shade"></div>
-        <div class="ep-dur">30 MIN</div>
-        <div class="ep-play"><div class="ring"><div class="tri"></div></div></div>
+      <div class="ep-top">
+        <img class="ep-avatar" src="/assets/lucas.jpg" alt="Lucas Carapiá">
+        <div class="ep-who">
+          <div class="name">Lucas Carapiá</div>
+          <div class="role">Advogado · Chainlink Advocate · Mestre UFBA</div>
+        </div>
       </div>
       <div class="ep-body">
-        <div class="ep-num">EPISÓDIO 01 / 04</div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 01 / 04</span><span class="ep-dur">30 MIN</span></div>
         <h3 class="ep-title">Ativos Virtuais &amp; PSAVs</h3>
         <div class="ep-sub">Linha histórica da regulação</div>
         <p class="ep-desc">A evolução dos meios de pagamento no Brasil até a chegada dos ativos virtuais: do sistema bancário tradicional ao arcabouço das Resoluções BCB 519, 520 e 521.</p>
@@ -346,29 +422,20 @@
           <span class="ep-tag">Lei 14.478/2022</span>
           <span class="ep-tag">Res. BCB 520</span>
         </div>
-        <div class="ep-foot">
-          <div class="ep-guest">
-            <img src="/assets/lucas.jpg" alt="Lucas Carapiá">
-            <div>
-              <div class="name">Lucas Carapiá</div>
-              <div class="role">Advogado · Chainlink Advocate · Mestre UFBA</div>
-            </div>
-          </div>
-          <span class="ep-cta">Assistir →</span>
-        </div>
+        <div class="ep-foot"><span class="ep-cta">Assistir →</span></div>
       </div>
     </article>
 
-    <!-- 02 -->
     <article class="ep reveal">
-      <div class="ep-media">
-        <div class="grid-fill"></div>
-        <img src="/assets/raphael.jpg" alt="Raphael Noronha">
-        <div class="ep-shade"></div>
-        <div class="ep-dur">30 MIN</div>
+      <div class="ep-top">
+        <img class="ep-avatar" src="/assets/raphael.jpg" alt="Raphael Noronha">
+        <div class="ep-who">
+          <div class="name">Raphael Noronha</div>
+          <div class="role">Advogado · Diretoria de Inovação e Tecnologia OAB/MG</div>
+        </div>
       </div>
       <div class="ep-body">
-        <div class="ep-num">EPISÓDIO 02 / 04</div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 02 / 04</span><span class="ep-dur">30 MIN</span></div>
         <h3 class="ep-title">Stablecoins &amp; Pagamentos Internacionais</h3>
         <div class="ep-sub">Cross-border e infraestrutura</div>
         <p class="ep-desc">Stablecoins como infraestrutura de pagamento: o conceito adotado pelo Banco Central, o uso em operações cross-border e até onde vai o regime cambial sob as Resoluções 520 e 521, incluindo o debate sobre IOF.</p>
@@ -376,29 +443,20 @@
           <span class="ep-tag">Res. BCB 521</span>
           <span class="ep-tag">Câmbio</span>
         </div>
-        <div class="ep-foot">
-          <div class="ep-guest">
-            <img src="/assets/raphael.jpg" alt="Raphael Noronha">
-            <div>
-              <div class="name">Raphael Noronha</div>
-              <div class="role">Advogado · Diretoria de Inovação e Tecnologia OAB/MG</div>
-            </div>
-          </div>
-          <span class="ep-cta soon">Em breve</span>
-        </div>
+        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
       </div>
     </article>
 
-    <!-- 03 -->
     <article class="ep reveal">
-      <div class="ep-media">
-        <div class="grid-fill"></div>
-        <img src="/assets/evan.jpg" alt="Evan Carneiro">
-        <div class="ep-shade"></div>
-        <div class="ep-dur">30 MIN</div>
+      <div class="ep-top">
+        <img class="ep-avatar" src="/assets/evan.jpg" alt="Evan Carneiro">
+        <div class="ep-who">
+          <div class="name">Evan Carneiro</div>
+          <div class="role">Legal Hacker · Web3 · BanklessBr DAO</div>
+        </div>
       </div>
       <div class="ep-body">
-        <div class="ep-num">EPISÓDIO 03 / 04</div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 03 / 04</span><span class="ep-dur">30 MIN</span></div>
         <h3 class="ep-title">Compliance, Travel Rule &amp; Controles Regulatórios</h3>
         <div class="ep-sub">Processos, controles e o papel do advogado</div>
         <p class="ep-desc">Como as empresas precisarão estruturar processos, políticas e controles internos para atender à Travel Rule e às obrigações de PLD/FT — e o papel do advogado na construção desse arranjo de conformidade.</p>
@@ -406,29 +464,20 @@
           <span class="ep-tag">Travel Rule</span>
           <span class="ep-tag">PLD/FT</span>
         </div>
-        <div class="ep-foot">
-          <div class="ep-guest">
-            <img src="/assets/evan.jpg" alt="Evan Carneiro">
-            <div>
-              <div class="name">Evan Carneiro</div>
-              <div class="role">Legal Hacker · Web3 · BanklessBr DAO</div>
-            </div>
-          </div>
-          <span class="ep-cta soon">Em breve</span>
-        </div>
+        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
       </div>
     </article>
 
-    <!-- 04 -->
     <article class="ep reveal">
-      <div class="ep-media">
-        <div class="grid-fill"></div>
-        <img src="/assets/miris.jpg" alt="Miris Bensiman">
-        <div class="ep-shade"></div>
-        <div class="ep-dur">30 MIN</div>
+      <div class="ep-top">
+        <img class="ep-avatar" src="/assets/miris.jpg" alt="Miris Bensiman">
+        <div class="ep-who">
+          <div class="name">Miris Bensiman</div>
+          <div class="role">Coordenadora de Compliance · Oxus Finance</div>
+        </div>
       </div>
       <div class="ep-body">
-        <div class="ep-num">EPISÓDIO 04 / 04</div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 04 / 04</span><span class="ep-dur">30 MIN</span></div>
         <h3 class="ep-title">Autorização, Custódia &amp; Transição dos PSAVs</h3>
         <div class="ep-sub">Encerramento da série</div>
         <p class="ep-desc">Análise geral dos efeitos da regulação sobre o ecossistema: quem consegue entrar no mercado regulado, como fica a custódia e a transição das empresas que já operavam antes das novas regras.</p>
@@ -436,16 +485,7 @@
           <span class="ep-tag">Res. BCB 519</span>
           <span class="ep-tag">Custódia</span>
         </div>
-        <div class="ep-foot">
-          <div class="ep-guest">
-            <img src="/assets/miris.jpg" alt="Miris Bensiman">
-            <div>
-              <div class="name">Miris Bensiman</div>
-              <div class="role">Coordenadora de Compliance · Oxus Finance</div>
-            </div>
-          </div>
-          <span class="ep-cta soon">Em breve</span>
-        </div>
+        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
       </div>
     </article>
 
