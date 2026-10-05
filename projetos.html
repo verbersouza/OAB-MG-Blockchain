@@ -346,6 +346,43 @@
   .ep:target .ep-title { color: var(--accent); }
   @media (max-width: 1100px) { .ep-strip { grid-template-columns: repeat(2, 1fr); } .mini:nth-child(2) { border-right: none; } .mini:nth-child(-n+2) { border-bottom: 1px solid var(--border); } }
   @media (max-width: 600px) { .ep-strip { grid-template-columns: 1fr; } .mini { border-right: none; border-bottom: 1px solid var(--border); padding: 20px; } .mini:last-child { border-bottom: none; } }
+  /* convidado clicavel + perfil */
+  button.ep-top { appearance: none; background: none; border: 0; border-bottom: 1px solid var(--border); color: inherit; font: inherit; width: 100%; cursor: pointer; min-height: 340px; transition: background .25s; }
+  button.ep-top:hover, button.ep-top:focus-visible { background: var(--accent-glow); outline: none; }
+  .ep-who { display: block; }
+  .ep-who .name, .ep-who .role { display: block; }
+  .ep-more { margin-top: auto; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); opacity: .75; transition: opacity .25s, letter-spacing .25s; }
+  button.ep-top:hover .ep-more, button.ep-top:focus-visible .ep-more { opacity: 1; letter-spacing: .2em; }
+  dialog.gm { border: 1px solid var(--border-accent); background: var(--bg2); color: var(--text); padding: 0; width: min(740px, calc(100vw - 32px)); max-height: calc(100vh - 40px); overflow: auto; margin: auto; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
+  dialog.gm { scrollbar-width: thin; scrollbar-color: #2c4560 transparent; }
+  dialog.gm[open] { animation: gmIn .32s cubic-bezier(.2,.8,.2,1); }
+  dialog.gm::backdrop { background: rgba(4,7,10,.74); backdrop-filter: blur(6px); }
+  @keyframes gmIn { from { opacity: 0; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
+  .gm-panel { position: relative; padding: 40px 44px 30px; }
+  .gm-close { position: absolute; top: 16px; right: 18px; width: 38px; height: 38px; background: none; border: 1px solid var(--border); color: var(--text-muted); font-size: 15px; cursor: pointer; transition: all .2s; }
+  .gm-close:hover, .gm-close:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
+  .gm-head { display: flex; align-items: center; gap: 30px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
+  .gm-photo { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex: none; filter: grayscale(1) contrast(1.05); border: 1px solid var(--border-accent); box-shadow: 0 0 0 6px var(--accent-glow); }
+  .gm-ep { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
+  .gm-name { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 400; line-height: 1.1; margin: 8px 0 8px; }
+  .gm-role { font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.7; letter-spacing: .03em; color: var(--text-muted); }
+  .gm-body { padding-top: 26px; }
+  .gm-lead { font-size: 16.5px; line-height: 1.7; color: var(--text); }
+  .gm-label { margin: 26px 0 14px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 12px; }
+  .gm-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--accent); }
+  .gm-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .gm-list li { position: relative; padding-left: 20px; font-size: 14.5px; line-height: 1.6; color: #a9b6c3; }
+  .gm-list li::before { content: ''; position: absolute; left: 0; top: .72em; width: 10px; height: 1px; background: var(--accent2); }
+  .gm-foot { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .gm-foot a { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
+  .gm-foot a:hover { text-decoration: underline; }
+  @media (max-width: 640px) { .gm-panel { padding: 30px 22px 24px; } .gm-head { flex-direction: column; align-items: flex-start; gap: 18px; } .gm-photo { width: 104px; height: 104px; } .gm-name { font-size: 32px; } button.ep-top { min-height: 0; } }
+  /* cartao do mediador: um pouco menor */
+  .mediador { width: clamp(440px, 32vw, 580px); gap: 30px; padding: 30px 34px; }
+  .med-avatar { width: 150px; height: 150px; }
+  .med-name { font-size: clamp(28px, 2.1vw, 36px); margin: 6px 0 10px; }
+  .med-role { font-size: 11.5px; }
+  @media (max-width: 1100px) { .mediador { width: 100%; max-width: 520px; } }
 </style>
 </head>
 <body>
@@ -395,7 +432,7 @@
   <div class="hero-visual" aria-hidden="true"><canvas id="heroCanvas"></canvas></div>
   <div class="hero-tag">Série de entrevistas · 2026</div>
   <h1 class="hero-h1">Webserie: o ecossistema dos <em>Ativos Virtuais</em>.</h1>
-  <p class="hero-sub">Entrevistas em vídeo de 30 minutos com especialistas convidados, dedicadas às Resoluções BCB 519, 520 e 521 e aos seus impactos sobre a prestação de serviços de ativos virtuais no Brasil.</p>
+  <p class="hero-sub">Entrevistas em vídeo com especialistas convidados, dedicadas às Resoluções BCB 519, 520 e 521 e aos seus impactos sobre a prestação de serviços de ativos virtuais no Brasil.</p>
   <div class="hero-actions">
     <a href="#serie" class="btn-primary">Ver a série ↓</a>
     <a href="#comissao" class="btn-secondary">Sobre a Comissão</a>
@@ -404,10 +441,10 @@
 
 <!-- EPISODIOS (mini cards) -->
 <div class="ep-strip" role="navigation" aria-label="Episódios da webserie">
-  <a class="mini" href="#ep1"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 01 · 30 MIN</span><span class="mini-title">Ativos Virtuais &amp; PSAVs</span><span class="mini-guest"><img src="/assets/lucas.jpg" alt="">Lucas Carapiá</span></span><span class="mini-state">Assistir →</span></a>
-  <a class="mini soon" href="#ep2"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 02 · 30 MIN</span><span class="mini-title">Stablecoins &amp; Pagamentos Internacionais</span><span class="mini-guest"><img src="/assets/raphael.jpg" alt="">Raphael Noronha</span></span><span class="mini-state">Em breve</span></a>
-  <a class="mini soon" href="#ep3"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 03 · 30 MIN</span><span class="mini-title">Compliance, Travel Rule &amp; Controles Regulatórios</span><span class="mini-guest"><img src="/assets/evan.jpg" alt="">Evan Carneiro</span></span><span class="mini-state">Em breve</span></a>
-  <a class="mini soon" href="#ep4"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 04 · 30 MIN</span><span class="mini-title">Autorização, Custódia &amp; Transição dos PSAVs</span><span class="mini-guest"><img src="/assets/miris.jpg" alt="">Miris Bensiman</span></span><span class="mini-state">Em breve</span></a>
+  <a class="mini soon" href="#ep1"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 01</span><span class="mini-title">Ativos Virtuais &amp; PSAVs</span><span class="mini-guest"><img src="/assets/lucas.jpg" alt="">Lucas Carapiá</span></span><span class="mini-state">Em breve</span></a>
+  <a class="mini soon" href="#ep2"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 02</span><span class="mini-title">Stablecoins &amp; Pagamentos Internacionais</span><span class="mini-guest"><img src="/assets/raphael.jpg" alt="">Raphael Noronha</span></span><span class="mini-state">Em breve</span></a>
+  <a class="mini soon" href="#ep3"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 03</span><span class="mini-title">Compliance, Travel Rule &amp; Controles Regulatórios</span><span class="mini-guest"><img src="/assets/evan.jpg" alt="">Evan Carneiro</span></span><span class="mini-state">Em breve</span></a>
+  <a class="mini soon" href="#ep4"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 04</span><span class="mini-title">Autorização, Custódia &amp; Transição dos PSAVs</span><span class="mini-guest"><img src="/assets/miris.jpg" alt="">Miris Bensiman</span></span><span class="mini-state">Em breve</span></a>
 </div>
 
 <!-- SERIES -->
@@ -415,7 +452,7 @@
   <div class="serie-head">
     <div class="serie-text">
       <div class="section-label">A série</div>
-      <p class="serie-lead"><strong>Quatro episódios de 30 minutos</strong> sobre o ecossistema de ativos virtuais: dos fundamentos da tecnologia descentralizada à evolução histórica da regulação, passando por stablecoins e pagamentos, compliance e o novo regime de autorização do Banco Central.</p>
+      <p class="serie-lead"><strong>Quatro episódios</strong> sobre o ecossistema de ativos virtuais: dos fundamentos da tecnologia descentralizada à evolução histórica da regulação, passando por stablecoins e pagamentos, compliance e o novo regime de autorização do Banco Central.</p>
     </div>
     <aside class="mediador">
       <img class="med-avatar" src="/assets/verber.jpg" alt="Verber Souza">
@@ -432,15 +469,13 @@
     <!-- 01 -->
 
     <article class="ep reveal" id="ep1">
-      <div class="ep-top">
+      <button type="button" class="ep-top" data-guest="lucas" aria-haspopup="dialog" aria-label="Ver o perfil de Lucas Carapiá">
         <img class="ep-avatar" src="/assets/lucas.jpg" alt="Lucas Carapiá">
-        <div class="ep-who">
-          <div class="name">Lucas Carapiá</div>
-          <div class="role">Advogado · Chainlink Advocate · Mestre UFBA</div>
-        </div>
-      </div>
+        <span class="ep-who"><span class="name">Lucas Carapiá</span><span class="role">Advogado · Mestre pela UFBA · Chainlink Advocate</span></span>
+        <span class="ep-more">Ver perfil +</span>
+      </button>
       <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 01 / 04</span><span class="ep-dur">30 MIN</span></div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 01 / 04</span></div>
         <h3 class="ep-title">Ativos Virtuais &amp; PSAVs</h3>
         <div class="ep-sub">Linha histórica da regulação</div>
         <p class="ep-desc">A evolução dos meios de pagamento no Brasil até a chegada dos ativos virtuais: do sistema bancário tradicional ao arcabouço das Resoluções BCB 519, 520 e 521.</p>
@@ -448,20 +483,18 @@
           <span class="ep-tag">Lei 14.478/2022</span>
           <span class="ep-tag">Res. BCB 520</span>
         </div>
-        <div class="ep-foot"><span class="ep-cta">Assistir →</span></div>
+        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
       </div>
     </article>
 
     <article class="ep reveal" id="ep2">
-      <div class="ep-top">
+      <button type="button" class="ep-top" data-guest="raphael" aria-haspopup="dialog" aria-label="Ver o perfil de Raphael Noronha">
         <img class="ep-avatar" src="/assets/raphael.jpg" alt="Raphael Noronha">
-        <div class="ep-who">
-          <div class="name">Raphael Noronha</div>
-          <div class="role">Advogado · Diretoria de Inovação e Tecnologia OAB/MG</div>
-        </div>
-      </div>
+        <span class="ep-who"><span class="name">Raphael Noronha</span><span class="role">Advogado e professor · Diretoria de Inovação e Tecnologia da OAB/MG</span></span>
+        <span class="ep-more">Ver perfil +</span>
+      </button>
       <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 02 / 04</span><span class="ep-dur">30 MIN</span></div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 02 / 04</span></div>
         <h3 class="ep-title">Stablecoins &amp; Pagamentos Internacionais</h3>
         <div class="ep-sub">Cross-border e infraestrutura</div>
         <p class="ep-desc">Stablecoins como infraestrutura de pagamento: o conceito adotado pelo Banco Central, o uso em operações cross-border e até onde vai o regime cambial sob as Resoluções 520 e 521, incluindo o debate sobre IOF.</p>
@@ -474,15 +507,13 @@
     </article>
 
     <article class="ep reveal" id="ep3">
-      <div class="ep-top">
+      <button type="button" class="ep-top" data-guest="evan" aria-haspopup="dialog" aria-label="Ver o perfil de Evan Carneiro">
         <img class="ep-avatar" src="/assets/evan.jpg" alt="Evan Carneiro">
-        <div class="ep-who">
-          <div class="name">Evan Carneiro</div>
-          <div class="role">Legal Hacker · Web3 · BanklessBr DAO</div>
-        </div>
-      </div>
+        <span class="ep-who"><span class="name">Evan Carneiro</span><span class="role">Advogado e Legal Hacker · CLO na Nautt Finance</span></span>
+        <span class="ep-more">Ver perfil +</span>
+      </button>
       <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 03 / 04</span><span class="ep-dur">30 MIN</span></div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 03 / 04</span></div>
         <h3 class="ep-title">Compliance, Travel Rule &amp; Controles Regulatórios</h3>
         <div class="ep-sub">Processos, controles e o papel do advogado</div>
         <p class="ep-desc">Como as empresas precisarão estruturar processos, políticas e controles internos para atender à Travel Rule e às obrigações de PLD/FT — e o papel do advogado na construção desse arranjo de conformidade.</p>
@@ -495,15 +526,13 @@
     </article>
 
     <article class="ep reveal" id="ep4">
-      <div class="ep-top">
+      <button type="button" class="ep-top" data-guest="miris" aria-haspopup="dialog" aria-label="Ver o perfil de Miris Bensiman">
         <img class="ep-avatar" src="/assets/miris.jpg" alt="Miris Bensiman">
-        <div class="ep-who">
-          <div class="name">Miris Bensiman</div>
-          <div class="role">Coordenadora de Compliance · Oxus Finance</div>
-        </div>
-      </div>
+        <span class="ep-who"><span class="name">Miris Bensiman</span><span class="role">Presidente da Comissão de Blockchain da OAB/MG · Compliance na Oxus Finance</span></span>
+        <span class="ep-more">Ver perfil +</span>
+      </button>
       <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 04 / 04</span><span class="ep-dur">30 MIN</span></div>
+        <div class="ep-meta"><span class="ep-num">EPISÓDIO 04 / 04</span></div>
         <h3 class="ep-title">Autorização, Custódia &amp; Transição dos PSAVs</h3>
         <div class="ep-sub">Encerramento da série</div>
         <p class="ep-desc">Análise geral dos efeitos da regulação sobre o ecossistema: quem consegue entrar no mercado regulado, como fica a custódia e a transição das empresas que já operavam antes das novas regras.</p>
@@ -663,6 +692,44 @@
   window.addEventListener('resize',resize);
   resize();
   (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){ if(reduce) frame(0,6); else requestAnimationFrame(loop); });
+})();
+</script>
+<!-- PERFIL DO CONVIDADO -->
+<dialog id="guestModal" class="gm" aria-labelledby="gmName">
+  <div class="gm-panel">
+    <button type="button" class="gm-close" id="gmClose" aria-label="Fechar">&#10005;</button>
+    <div class="gm-head">
+      <img class="gm-photo" id="gmPhoto" alt="">
+      <div>
+        <div class="gm-ep" id="gmEp"></div>
+        <h3 class="gm-name" id="gmName"></h3>
+        <div class="gm-role" id="gmRole"></div>
+      </div>
+    </div>
+    <div class="gm-body">
+      <p class="gm-lead" id="gmLead"></p>
+      <div class="gm-label">Trajetória e atuação</div>
+      <ul class="gm-list" id="gmList"></ul>
+    </div>
+    <div class="gm-foot"><a id="gmEpLink" href="#ep1">Ver o episódio &rarr;</a></div>
+  </div>
+</dialog>
+<script>
+(function(){
+  var G={"lucas": {"ep": "Episódio 01 · Ativos Virtuais & PSAVs", "epHref": "#ep1", "name": "Lucas Carapiá", "role": "Advogado · Mestre pela UFBA · Chainlink Advocate", "photo": "/assets/lucas.jpg", "lead": "Advogado com experiência em contencioso e consultoria criminal, compliance e programas de PLD/FT, com atuação em investigações (internas e OSINT) e análise de riscos regulatórios.", "items": ["Mestre pela UFBA e professor na Universidade Salvador; integra o corpo docente de cursos de pós-graduação em instituições jurídicas e corporativas", "Foi Professor Substituto na Universidade Federal da Bahia", "Exerceu funções de gestão no Instituto Baiano de Direito Processual Penal (IBADPP), incluindo a Presidência da instituição (2023/2024)", "Atua na regulação de novos negócios digitais e do mercado de criptoativos, com foco em tokenização, governança e conformidade regulatória", "Chainlink Advocate; participa de projetos consultivos e acadêmicos de inovação e infraestrutura Web3"]}, "raphael": {"ep": "Episódio 02 · Stablecoins & Pagamentos Internacionais", "epHref": "#ep2", "name": "Raphael Marques Silva Noronha", "role": "Advogado · OAB/MG 199.080 · Especialista em Direito Empresarial", "photo": "/assets/raphael.jpg", "lead": "Advogado especialista em Direito Empresarial, professor universitário e integrante da Diretoria de Inovação e Tecnologia da OAB/MG.", "items": ["Graduado e pós-graduado em Direito pela PUC Minas", "Especialista em Direito Empresarial", "Professor universitário (atualmente na Anhanguera)", "Diretoria de Inovação e Tecnologia da OAB/MG"]}, "evan": {"ep": "Episódio 03 · Compliance, Travel Rule & Controles Regulatórios", "epHref": "#ep3", "name": "Evan Carneiro", "role": "Advogado e Legal Hacker · CLO na Nautt Finance", "photo": "/assets/evan.jpg", "lead": "Advogado formado pela Universidade Católica de Salvador, pós-graduado em Direito Digital e Legal Hacker, com atuação em Web3, criptoativos e direito cibernético.", "items": ["Secretário Nacional da Comissão de Ativos Digitais da ABA; CLO na Nautt Finance", "Head of Legal na Play 4 Change; time de jurídico da PFP Supply Co.", "Coordenador da Guilda Jurídica da Bankless BR DAO", "Coordenador da subcomissão de Blockchain da Comissão Permanente de Tecnologia da Informação (CPTI) da OAB/BA", "Membro da Comissão Especial de Direito Digital da OAB/BA", "Membro da Comissão Especial de Blockchain e Criptoativos da OAB/SP", "Membro dos Legal Hackers"]}, "miris": {"ep": "Episódio 04 · Autorização, Custódia & Transição dos PSAVs", "epHref": "#ep4", "name": "Miris Bensiman", "role": "Presidente da Comissão de Blockchain da OAB/MG · Compliance na Oxus Finance", "photo": "/assets/miris.jpg", "lead": "Advogada com atuação em ativos virtuais e conformidade regulatória (PLD/FT). Presidente da Comissão de Blockchain da OAB/MG.", "items": ["Presidente da Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG", "Coordenadora de Compliance na Oxus Finance", "Atuação em ativos virtuais e em conformidade regulatória / PLD-FT"]}};
+  var dlg=document.getElementById('guestModal'); if(!dlg||!dlg.showModal) return;
+  var $=function(i){ return document.getElementById(i); };
+  function open(id){
+    var g=G[id]; if(!g) return;
+    $('gmPhoto').src=g.photo; $('gmPhoto').alt=g.name; $('gmEp').textContent=g.ep; $('gmName').textContent=g.name; $('gmRole').textContent=g.role; $('gmLead').textContent=g.lead;
+    var ul=$('gmList'); ul.textContent=''; g.items.forEach(function(t){ var li=document.createElement('li'); li.textContent=t; ul.appendChild(li); });
+    $('gmEpLink').setAttribute('href',g.epHref);
+    dlg.showModal(); dlg.scrollTop=0;
+  }
+  document.querySelectorAll('[data-guest]').forEach(function(b){ b.addEventListener('click',function(){ open(b.getAttribute('data-guest')); }); });
+  $('gmClose').addEventListener('click',function(){ dlg.close(); });
+  $('gmEpLink').addEventListener('click',function(){ dlg.close(); });
+  dlg.addEventListener('click',function(e){ var r=dlg.getBoundingClientRect(); if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom) dlg.close(); });
 })();
 </script>
 </body>
