@@ -162,7 +162,7 @@
   .section-title em { font-style: italic; color: var(--gold); }
 
   /* TIMELINE */
-  #marco { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  #marco { background: var(--bg); }
   .timeline-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 72px; flex-wrap: wrap; gap: 24px; }
   .timeline-note { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-muted); max-width: 300px; line-height: 1.6; border-left: 2px solid var(--accent2); padding-left: 14px; }
   .timeline { position: relative; display: flex; flex-direction: column; }
@@ -184,7 +184,7 @@
   .res-tag { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 8px; border: 1px solid var(--border-accent); color: var(--accent); letter-spacing: 0.05em; background: var(--accent-glow); }
 
   /* TOPICS */
-  #temas { background: var(--bg); }
+  #temas { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
   .topics-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 64px; border: 1px solid var(--border); background: var(--border); }
   .topic-card { background: var(--bg); padding: 44px 40px; position: relative; overflow: hidden; transition: background 0.35s; }
   .topic-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%); opacity: 0; transition: opacity 0.35s; }
@@ -379,11 +379,11 @@
     </div>
   </div>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#marco" onclick="closeMenu()">O Marco</a></li>
-    <li><a href="#temas" onclick="closeMenu()">Temas</a></li>
+    <li><a href="/" onclick="closeMenu()">Home</a></li>
     <li><a href="#glossario" onclick="closeMenu()">Glossário</a></li>
+    <li><a href="#temas" onclick="closeMenu()">Temas</a></li>
     <li><a href="#comissao" onclick="closeMenu()">A Comissão</a></li>
-    <li><a href="/projetos" onclick="closeMenu()">Projetos</a></li>
+    <li><a href="/projetos" onclick="closeMenu()">Webserie</a></li>
     <li><a href="/blog.html" class="nav-blog">Blog</a></li>
   </ul>
   <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
@@ -395,11 +395,11 @@
 <div class="mobile-menu" id="mobileMenu">
   <button class="mobile-menu-close" onclick="closeMenu()">✕</button>
   <ul>
-    <li><a href="#marco" onclick="closeMenu()">O Marco</a></li>
-    <li><a href="#temas" onclick="closeMenu()">Temas</a></li>
+    <li><a href="/" onclick="closeMenu()">Home</a></li>
     <li><a href="#glossario" onclick="closeMenu()">Glossário</a></li>
+    <li><a href="#temas" onclick="closeMenu()">Temas</a></li>
     <li><a href="#comissao" onclick="closeMenu()">A Comissão</a></li>
-    <li><a href="/projetos" onclick="closeMenu()">Projetos</a></li>
+    <li><a href="/projetos" onclick="closeMenu()">Webserie</a></li>
     <li><a href="/blog.html" class="mobile-blog">Blog</a></li>
   </ul>
 </div>
@@ -409,12 +409,12 @@
 <section id="hero">
   <div class="hero-glow"></div>
   <div class="hero-glow-2"></div>
-  <div class="hero-tag">OAB/MG · Comissão Temática · 2025–2026</div>
+  <div class="hero-tag">Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG</div>
   <h1 class="hero-h1">
-    O Brasil regulou<br>o mercado de<br><em>criptoativos.</em><br>O direito não<br>pode ficar para trás.
+    Onde o direito<br>encontra as<br><em>tecnologias distribuídas.</em>
   </h1>
   <p class="hero-sub">
-    A Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG reúne o que todo advogado precisa entender sobre o novo marco regulatório brasileiro.
+    Estudo, difusão e debate sobre o direito aplicado ao ecossistema de ativos digitais.
   </p>
   <div class="hero-actions">
     <a href="#temas" class="btn-primary">Explorar os temas →</a>
@@ -426,127 +426,13 @@
   </div>
 </section>
 
-<!-- TIMELINE -->
-<section id="marco">
-  <div class="timeline-header reveal">
-    <div>
-      <div class="section-label">01 · O Marco Regulatório</div>
-      <h2 class="section-title">Uma regulação que levou<br>quase uma <em>década</em> para chegar</h2>
-    </div>
-    <div class="timeline-note">
-      A entrada em vigor das Resoluções BCB 519, 520 e 521 ocorreu em fevereiro de 2026. Empresas já em operação têm prazo de adequação de 270 dias.
-    </div>
-  </div>
-  <div class="timeline">
-    <div class="tl-item reveal">
-      <div class="tl-year">2017</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">Primeiro alerta regulatório</div>
-        <div class="tl-desc">Banco Central emite o Comunicado 31.379 — primeiras orientações sobre riscos de ativos virtuais.</div>
-      </div>
-    </div>
-    <div class="tl-item reveal">
-      <div class="tl-year">2019</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">Receita Federal entra em campo</div>
-        <div class="tl-desc">Instrução Normativa 1.888 estabelece obrigações de reporte fiscal para operações com criptoativos.</div>
-      </div>
-    </div>
-    <div class="tl-item reveal">
-      <div class="tl-year">2022</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">Marco Legal dos Criptoativos</div>
-        <div class="tl-desc">Lei 14.478/2022 — define ativos virtuais, cria a figura da PSAV e estabelece a base do framework regulatório.</div>
-      </div>
-    </div>
-    <div class="tl-item reveal">
-      <div class="tl-year">2023</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">BCB torna-se o regulador</div>
-        <div class="tl-desc">Decreto 11.563 designa o Banco Central do Brasil como autoridade regulatória das PSAVs.</div>
-      </div>
-    </div>
-    <div class="tl-item reveal">
-      <div class="tl-year">2023–24</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">Consultas Públicas</div>
-        <div class="tl-desc">BCB conduz CPs 109, 110 e 111 — mercado, academia e sociedade civil contribuem com o texto regulatório.</div>
-      </div>
-    </div>
-    <div class="tl-item highlight reveal">
-      <div class="tl-year">Nov. 2025</div>
-      <div class="tl-dot"></div>
-      <div class="tl-content">
-        <div class="tl-title">O framework regulatório completo</div>
-        <div class="tl-desc">Banco Central publica as três resoluções que estruturam a operação do mercado de ativos virtuais no Brasil.</div>
-        <div class="tl-res">
-          <span class="res-tag">Res. 519 · Autorização</span>
-          <span class="res-tag">Res. 520 · Operação</span>
-          <span class="res-tag">Res. 521 · Câmbio</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOT TOPICS -->
-<section id="temas">
-  <div class="reveal">
-    <div class="section-label">02 · Temas Quentes</div>
-    <h2 class="section-title">O que está na<br>pauta jurídica <em>agora</em></h2>
-  </div>
-  <div class="topics-grid">
-    <div class="topic-card reveal">
-      <div class="topic-number">01</div>
-      <span class="topic-icon">⬡</span>
-      <h3 class="topic-title">Ativos Virtuais & PSAVs</h3>
-      <div class="topic-subtitle">Res. BCB 520 · Lei 14.478/2022</div>
-      <p class="topic-body">A Resolução BCB 520 define três modalidades de prestadoras — intermediárias, custodiantes e corretoras. Cada modalidade tem escopo fechado: a PSAV só pode exercer as atividades que a norma expressamente autoriza.</p>
-      <div class="topic-alert"><strong>Prazo em curso.</strong> Empresas em operação antes de fevereiro de 2026 têm 270 dias para solicitar autorização ao BCB. Quem não estava em operação não pode iniciar atividades sem autorização prévia.</div>
-      <div class="topic-indicator">→ Modelagem societária, autorização e enquadramento de atividades são temas com alta complexidade casuística.</div>
-    </div>
-    <div class="topic-card reveal">
-      <div class="topic-number">02</div>
-      <span class="topic-icon">◈</span>
-      <h3 class="topic-title">Stablecoins</h3>
-      <div class="topic-subtitle">Res. BCB 520 · PL 4308</div>
-      <p class="topic-body">O BCB define stablecoin como ativo virtual referenciado em moeda fiduciária, com reserva em moeda ou títulos públicos do governo emissor. Existem ao menos quatro tipos no mercado — a regulação brasileira atual cobre apenas um.</p>
-      <div class="topic-alert"><strong>Regulação incompleta.</strong> Ainda não há norma específica de emissão de stablecoins no Brasil. O PL 4308, em tramitação, pode alterar esse cenário. Há debate aberto sobre incidência de IOF em operações incluídas no mercado de câmbio.</div>
-      <div class="topic-indicator">→ Tema em construção normativa. Atuação nessa área exige acompanhamento legislativo ativo.</div>
-    </div>
-    <div class="topic-card reveal">
-      <div class="topic-number">03</div>
-      <span class="topic-icon">◇</span>
-      <h3 class="topic-title">RWA · Real World Assets</h3>
-      <div class="topic-subtitle">CVM · BCB · Regulação Setorial</div>
-      <p class="topic-body">Tokenização de ativos do mundo real — imóveis, recebíveis, commodities, títulos — em representação digital em blockchain. No Brasil, a intersecção regulatória envolve CVM, BCB e, a depender do ativo, reguladores setoriais específicos.</p>
-      <div class="topic-alert"><strong>Marco ainda difuso.</strong> Não há norma única para RWA no Brasil. A classificação do token como valor mobiliário (CVM) ou ativo virtual (BCB) define todo o regime jurídico aplicável — e essa linha ainda não está completamente traçada.</div>
-      <div class="topic-indicator">→ Estruturação jurídica de operações com RWA exige análise multidisciplinar e caso a caso.</div>
-    </div>
-    <div class="topic-card reveal">
-      <div class="topic-number">04</div>
-      <span class="topic-icon">⬡</span>
-      <h3 class="topic-title">BaaS · Blockchain as a Service</h3>
-      <div class="topic-subtitle">PSR · Res. BCB 520</div>
-      <p class="topic-body">Modelos de negócio que oferecem infraestrutura blockchain como serviço. A Resolução 520 cria a figura do Prestador de Serviços Relevantes (PSR) — categoria que pode enquadrar esses modelos sem exigir licença de PSAV, mas com requisitos próprios.</p>
-      <div class="topic-alert"><strong>Distinção crítica.</strong> A linha entre PSR e PSAV impacta diretamente as obrigações regulatórias, o capital exigido e a responsabilidade perante o BCB. Provedores de liquidez e formadores de mercado foram explicitamente qualificados como PSR — não como PSAV.</div>
-      <div class="topic-indicator">→ Enquadramento depende da análise concreta das atividades efetivamente prestadas.</div>
-    </div>
-  </div>
-</section>
-
 <!-- GLOSSARY -->
 <section id="glossario">
   <div class="glossary-grid">
     <div class="glossary-intro reveal">
-      <div class="section-label">03 · Glossário</div>
-      <h2 class="section-title">Os termos que você precisa <em>dominar</em></h2>
-      <p class="glossary-intro-body">O vocabulário regulatório e tecnológico de criptoativos é específico e tem consequências jurídicas diretas. Cada definição abaixo é extraída das normas vigentes ou de conceitos técnicos consolidados — não de interpretações de mercado.</p>
+      <div class="section-label">01 · Glossário</div>
+      <h2 class="section-title">Primeiro, a tecnologia.<br>Depois, o <em>vocabulário jurídico</em></h2>
+      <p class="glossary-intro-body">Para entender a regulação, é preciso entender a tecnologia. O glossário parte dos conceitos técnicos — blockchain, token, consenso, carteira — e avança para os termos jurídicos e regulatórios. Cada definição vem das normas vigentes ou de conceitos técnicos consolidados, não de interpretações de mercado.</p>
       <div class="glossary-source">
         Fontes normativas: Lei 14.478/2022<br>
         Res. BCB 519, 520 e 521 · Decreto 11.563/2023<br>
@@ -788,6 +674,120 @@
   </div>
 </section>
 
+<!-- TIMELINE -->
+<section id="marco">
+  <div class="timeline-header reveal">
+    <div>
+      <div class="section-label">02 · Acompanhamento Regulatório</div>
+      <h2 class="section-title">A evolução normativa<br>dos ativos virtuais <em>no Brasil</em></h2>
+    </div>
+    <div class="timeline-note">
+      A entrada em vigor das Resoluções BCB 519, 520 e 521 ocorreu em fevereiro de 2026. Empresas já em operação têm prazo de adequação de 270 dias.
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="tl-item reveal">
+      <div class="tl-year">2017</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Primeiro alerta regulatório</div>
+        <div class="tl-desc">Banco Central emite o Comunicado 31.379 — primeiras orientações sobre riscos de ativos virtuais.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2019</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Receita Federal entra em campo</div>
+        <div class="tl-desc">Instrução Normativa 1.888 estabelece obrigações de reporte fiscal para operações com criptoativos.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2022</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Marco Legal dos Criptoativos</div>
+        <div class="tl-desc">Lei 14.478/2022 — define ativos virtuais, cria a figura da PSAV e estabelece a base do framework regulatório.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2023</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">BCB torna-se o regulador</div>
+        <div class="tl-desc">Decreto 11.563 designa o Banco Central do Brasil como autoridade regulatória das PSAVs.</div>
+      </div>
+    </div>
+    <div class="tl-item reveal">
+      <div class="tl-year">2023–24</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">Consultas Públicas</div>
+        <div class="tl-desc">BCB conduz CPs 109, 110 e 111 — mercado, academia e sociedade civil contribuem com o texto regulatório.</div>
+      </div>
+    </div>
+    <div class="tl-item highlight reveal">
+      <div class="tl-year">Nov. 2025</div>
+      <div class="tl-dot"></div>
+      <div class="tl-content">
+        <div class="tl-title">O framework regulatório completo</div>
+        <div class="tl-desc">Banco Central publica as três resoluções que estruturam a operação do mercado de ativos virtuais no Brasil.</div>
+        <div class="tl-res">
+          <span class="res-tag">Res. 519 · Autorização</span>
+          <span class="res-tag">Res. 520 · Operação</span>
+          <span class="res-tag">Res. 521 · Câmbio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOT TOPICS -->
+<section id="temas">
+  <div class="reveal">
+    <div class="section-label">03 · Temas-chave</div>
+    <h2 class="section-title">O que está na<br>pauta jurídica <em>agora</em></h2>
+  </div>
+  <div class="topics-grid">
+    <div class="topic-card reveal">
+      <div class="topic-number">01</div>
+      <span class="topic-icon">⬡</span>
+      <h3 class="topic-title">Ativos Virtuais & PSAVs</h3>
+      <div class="topic-subtitle">Res. BCB 520 · Lei 14.478/2022</div>
+      <p class="topic-body">A Resolução BCB 520 define três modalidades de prestadoras — intermediárias, custodiantes e corretoras. Cada modalidade tem escopo fechado: a PSAV só pode exercer as atividades que a norma expressamente autoriza.</p>
+      <div class="topic-alert"><strong>Prazo em curso.</strong> Empresas em operação antes de fevereiro de 2026 têm 270 dias para solicitar autorização ao BCB. Quem não estava em operação não pode iniciar atividades sem autorização prévia.</div>
+      <div class="topic-indicator">→ Modelagem societária, autorização e enquadramento de atividades são temas com alta complexidade casuística.</div>
+    </div>
+    <div class="topic-card reveal">
+      <div class="topic-number">02</div>
+      <span class="topic-icon">◈</span>
+      <h3 class="topic-title">Stablecoins</h3>
+      <div class="topic-subtitle">Res. BCB 520 · PL 4308</div>
+      <p class="topic-body">O BCB define stablecoin como ativo virtual referenciado em moeda fiduciária, com reserva em moeda ou títulos públicos do governo emissor. Existem ao menos quatro tipos no mercado — a regulação brasileira atual cobre apenas um.</p>
+      <div class="topic-alert"><strong>Regulação incompleta.</strong> Ainda não há norma específica de emissão de stablecoins no Brasil. O PL 4308, em tramitação, pode alterar esse cenário. Há debate aberto sobre incidência de IOF em operações incluídas no mercado de câmbio.</div>
+      <div class="topic-indicator">→ Tema em construção normativa. Atuação nessa área exige acompanhamento legislativo ativo.</div>
+    </div>
+    <div class="topic-card reveal">
+      <div class="topic-number">03</div>
+      <span class="topic-icon">◇</span>
+      <h3 class="topic-title">RWA · Real World Assets</h3>
+      <div class="topic-subtitle">CVM · BCB · Regulação Setorial</div>
+      <p class="topic-body">Tokenização de ativos do mundo real — imóveis, recebíveis, commodities, títulos — em representação digital em blockchain. No Brasil, a intersecção regulatória envolve CVM, BCB e, a depender do ativo, reguladores setoriais específicos.</p>
+      <div class="topic-alert"><strong>Marco ainda difuso.</strong> Não há norma única para RWA no Brasil. A classificação do token como valor mobiliário (CVM) ou ativo virtual (BCB) define todo o regime jurídico aplicável — e essa linha ainda não está completamente traçada.</div>
+      <div class="topic-indicator">→ Estruturação jurídica de operações com RWA exige análise multidisciplinar e caso a caso.</div>
+    </div>
+    <div class="topic-card reveal">
+      <div class="topic-number">04</div>
+      <span class="topic-icon">⬡</span>
+      <h3 class="topic-title">BaaS · Blockchain as a Service</h3>
+      <div class="topic-subtitle">PSR · Res. BCB 520</div>
+      <p class="topic-body">Modelos de negócio que oferecem infraestrutura blockchain como serviço. A Resolução 520 cria a figura do Prestador de Serviços Relevantes (PSR) — categoria que pode enquadrar esses modelos sem exigir licença de PSAV, mas com requisitos próprios.</p>
+      <div class="topic-alert"><strong>Distinção crítica.</strong> A linha entre PSR e PSAV impacta diretamente as obrigações regulatórias, o capital exigido e a responsabilidade perante o BCB. Provedores de liquidez e formadores de mercado foram explicitamente qualificados como PSR — não como PSAV.</div>
+      <div class="topic-indicator">→ Enquadramento depende da análise concreta das atividades efetivamente prestadas.</div>
+    </div>
+  </div>
+</section>
+
 <!-- COMMISSION -->
 <section id="comissao">
   <div class="commission-bg">
@@ -842,8 +842,8 @@
         <ul>
           <li><a href="https://www.oabmg.org.br" target="_blank">OAB/MG</a></li>
           <li><a href="#comissao">A Comissão</a></li>
-          <li><a href="#marco">O Marco Regulatório</a></li>
-          <li><a href="#temas">Temas Quentes</a></li>
+          <li><a href="#marco">Acompanhamento Regulatório</a></li>
+          <li><a href="#temas">Temas-chave</a></li>
           <li><a href="#glossario">Glossário</a></li>
         </ul>
       </div>
