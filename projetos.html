@@ -1,736 +1,145 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Webserie: o ecossistema dos Ativos Virtuais — OAB/MG</title>
-<meta name="description" content="Série de entrevistas em vídeo da Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG sobre as Resoluções BCB 519, 520 e 521.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Syne:wght@400;500;600;700;800&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg: #080c10;
-    --bg2: #0c1118;
-    --bg3: #111820;
-    --surface: rgba(255,255,255,0.03);
-    --border: rgba(255,255,255,0.07);
-    --border-accent: rgba(100,220,200,0.2);
-    --accent: #64dcc8;
-    --accent2: #3a9e8e;
-    --accent-glow: rgba(100,220,200,0.12);
-    --text: #e8edf2;
-    --text-muted: #6b7a8a;
-    --text-dim: #3d4a57;
-    --gold: #c9a96e;
-  }
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Syne', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(rgba(100,220,200,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(100,220,200,0.03) 1px, transparent 1px);
-    background-size: 60px 60px;
-    pointer-events: none;
-    z-index: 0;
-  }
-  section, nav, footer { position: relative; z-index: 1; }
-  a { color: var(--accent); text-decoration: none; }
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Webserie: o ecossistema dos Ativos Virtuais — OAB/MG</title><meta name="description" content="Série de entrevistas em vídeo da Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG sobre a regulação brasileira dos ativos virtuais."><link rel="preconnect" href="https://fonts.googleapis.com"><link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"><style>:root{--bg:#FAFAF8;--ink:#111;--mute:#5d5d58;--line:#dcdcd5;--hd:#FAFAF8;--bar:#111;--barink:#f0f0ea;--btn:#111;--btnink:#fff;--card:#fff;--alt:#F1F1EC;--dk:#111;--r:3px;--hw:400;--serif:'Newsreader',Georgia,serif;--sans:'Inter',sans-serif}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}a{color:inherit;text-decoration:none}
+.topbar{background:var(--bar);color:var(--barink);text-align:center;font-size:13px;padding:10px 16px;letter-spacing:.02em}
+.hd{background:var(--hd);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5}
+.hdin{display:flex;align-items:center;justify-content:space-between;gap:24px;height:76px}
+.brand{display:flex;align-items:center;gap:14px}.bm{font:700 18px var(--sans);letter-spacing:.06em;padding-right:14px;border-right:1px solid var(--line)}
+.bt{font-size:12.5px;line-height:1.25;color:var(--mute)}
+.menu{display:flex;gap:30px;font-size:15px}.menu a{padding:6px 0;border-bottom:1px solid transparent}.menu a:hover{border-color:var(--ink)}
+.btn{display:inline-block;font:500 15px var(--sans);padding:13px 22px;border-radius:var(--r);border:1px solid var(--ink);transition:.2s}
+.btn.dark{background:var(--btn);color:var(--btnink);border-color:var(--btn)}.btn.dark:hover{opacity:.85}
+.btn.line:hover{background:var(--ink);color:var(--bg)}.btn.inv{background:#fff;color:#111;border-color:#fff}
+.hero{padding:110px 0 90px}.herogrid{display:grid;grid-template-columns:1.35fr 1fr;gap:60px;align-items:end}
+h1,h2,h3{font-family:var(--serif);font-weight:var(--hw);letter-spacing:-.01em;line-height:1.06}
+h1{font-size:clamp(44px,7vw,92px)}h2{font-size:clamp(32px,4vw,52px);max-width:16ch}
+.herod p{font-size:20px;margin-bottom:28px;color:var(--mute)}.btns{display:flex;gap:12px;flex-wrap:wrap}
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.stats{display:grid;grid-template-columns:repeat(3,1fr)}
+.stats div{padding:34px 24px;border-left:1px solid var(--line)}.stats div:first-child{border-left:0;padding-left:0}
+.stats b{display:block;font:400 54px var(--serif)}.stats span{font-size:14px;color:var(--mute)}
+.sec{padding:100px 0}.alt{background:var(--alt)}.sh{margin-bottom:48px}.ey{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);margin-bottom:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:30px;transition:.2s}.card:hover{border-color:var(--ink)}
+.card h3{font-size:27px;margin-bottom:12px}.card p{color:var(--mute);font-size:16px}.card small{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);margin-bottom:14px}
+.big{padding:38px}
+.tl{list-style:none;padding:0;border-top:1px solid var(--line)}.tl li{display:grid;grid-template-columns:140px 1fr;gap:20px;padding:22px 0;border-bottom:1px solid var(--line)}
+.tl b{font:400 30px var(--serif)}.tl span{color:var(--mute)}
+.dk{background:var(--dk);color:#fff}.dk .ey,.dk p{color:#b9c0c8}.webs{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.dk h2{margin-bottom:18px}.dk p{margin-bottom:28px}.eps{list-style:none;padding:0;border-top:1px solid #ffffff30}
+.eps li{display:grid;grid-template-columns:50px 1fr auto;gap:14px;padding:20px 0;border-bottom:1px solid #ffffff30}.eps b{font:400 24px var(--serif);color:#9fb0c0}.eps em{font-style:normal;font-size:13px;color:#9fb0c0}
+.person{display:flex;gap:22px;align-items:center}.ph{width:76px;height:76px;border-radius:50%;background:var(--ink);color:var(--bg);display:grid;place-items:center;font:400 26px var(--serif)}
+.person h3{font-size:26px;margin:0 0 4px}.quote{margin-top:20px;border-left:3px solid var(--ink);padding:10px 0 10px 28px;font:italic 400 24px/1.4 var(--serif);color:var(--mute)}
+.quote small{display:block;font:500 12px var(--sans);letter-spacing:.1em;text-transform:uppercase;font-style:normal;margin-bottom:8px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}.contact p{margin-bottom:22px;color:var(--mute)}
+.ft{padding:36px 0;border-top:1px solid var(--line);font-size:14px;color:var(--mute)}
+@media(max-width:860px){.menu{display:none}.herogrid,.webs,.contact,.grid3,.grid2,.stats{grid-template-columns:1fr}.stats div{border-left:0;border-top:1px solid var(--line);padding-left:0}.bt{display:none}.tl li{grid-template-columns:80px 1fr}.hero{padding:60px 0}.sec{padding:64px 0}}
 
-  /* NAV */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 0 48px; height: 72px;
-    background: rgba(8,12,16,0.9);
-    backdrop-filter: blur(20px);
-    border-bottom: 1px solid var(--border);
-    transition: border-color 0.3s;
-  }
-  .nav-brand { display: flex; align-items: center; gap: 14px; }
-  .nav-brand a { display: flex; align-items: center; gap: 14px; }
-  .nav-logo { width: 36px; height: 36px; object-fit: contain; display: block; }
-  .nav-title { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); line-height: 1.3; }
-  .nav-title span { display: block; color: var(--text); }
-  .nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
-  .nav-links a { font-size: 12px; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-  .nav-links a:hover { color: var(--accent); }
-  .nav-links a.active { color: var(--accent); }
-  .nav-links a.nav-blog {
-    color: var(--accent);
-    border: 1px solid var(--border-accent);
-    padding: 6px 14px;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    transition: all 0.25s;
-  }
-  .nav-links a.nav-blog:hover { background: var(--accent-glow); color: var(--accent); }
+img.ph{object-fit:cover;object-position:center top;display:block;background:var(--alt)}
+.lead{color:var(--mute);max-width:46em;margin-top:18px;font-size:18px}
+.glgrid{display:grid;grid-template-columns:.8fr 1.4fr;gap:64px;align-items:start}.glintro{position:sticky;top:110px}.glintro p{color:var(--mute);margin:18px 0}.glintro small{display:block;color:var(--mute);font-size:13px;line-height:1.7}
+.acc{border-top:1px solid var(--line)}.acc:last-child{border-bottom:1px solid var(--line)}
+.acc summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:14px;padding:20px 0}.acc summary::-webkit-details-marker{display:none}
+.at{font:400 24px var(--serif);flex:1}.tg{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+.acc i{width:14px;height:14px;position:relative;flex:none}.acc i:before,.acc i:after{content:"";position:absolute;background:var(--ink);left:0;right:0;top:6px;height:1.5px;transition:transform .25s}.acc i:after{transform:rotate(90deg)}.acc[open] i:after{transform:rotate(0)}
+.ab{padding:0 0 24px;max-width:46em}.ab p{color:var(--mute)}.ab small{display:block;margin-top:12px;font-size:12.5px;letter-spacing:.04em;color:var(--ink)}
+.topic{display:flex;flex-direction:column}.alertbox{margin:20px 0 0;padding:16px 18px;border-left:2px solid var(--ink);background:var(--alt);font-size:15px;color:var(--ink)}
+.topic .ind{margin-top:16px;font-size:15px;font-style:italic}.tl strong{font-weight:600}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:34px}.chips span{border:1px solid var(--ink);padding:8px 14px;font-size:13px;border-radius:99px}
+.disc{padding:30px 24px 10px;max-width:1200px;font-size:13px;line-height:1.6}.ft .wrap.disc{display:block}
+@media(max-width:860px){.glgrid{grid-template-columns:1fr;gap:32px}.glintro{position:static}}
 
-  /* HERO */
-  #hero {
-    min-height: 88vh; display: flex; flex-direction: column; justify-content: center;
-    padding: 140px 48px 90px; position: relative; overflow: hidden;
-  }
-  .hero-glow {
-    position: absolute; width: 700px; height: 700px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(100,220,200,0.06) 0%, transparent 70%);
-    top: -260px; right: -200px; pointer-events: none;
-  }
-  .hero-glow-2 {
-    position: absolute; width: 400px; height: 400px; border-radius: 50%;
-    background: radial-gradient(circle, rgba(201,169,110,0.05) 0%, transparent 70%);
-    bottom: -80px; left: 100px; pointer-events: none;
-  }
-  .hero-tag {
-    display: inline-flex; align-items: center; gap: 8px;
-    font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 32px;
-    opacity: 0; animation: fadeUp 0.8s 0.2s forwards;
-  }
-  .hero-tag::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
-  .hero-h1 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(44px, 6vw, 82px);
-    font-weight: 300; line-height: 1.05; letter-spacing: -0.02em; max-width: 860px;
-    opacity: 0; animation: fadeUp 0.9s 0.4s forwards;
-  }
-  .hero-h1 em { font-style: italic; color: var(--accent); }
-  .hero-sub {
-    font-size: clamp(17px, 1.55vw, 21px); color: #9aa7b4; max-width: 660px;
-    margin-top: 30px; line-height: 1.65;
-    opacity: 0; animation: fadeUp 0.9s 0.6s forwards;
-  }
-  .hero-actions {
-    display: flex; gap: 16px; margin-top: 48px; flex-wrap: wrap;
-    opacity: 0; animation: fadeUp 0.9s 0.8s forwards;
-  }
-  .btn-primary {
-    display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
-    background: var(--accent); color: var(--bg);
-    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700;
-    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-    border: none; cursor: pointer; transition: all 0.25s;
-  }
-  .btn-primary:hover { background: #7de8d4; transform: translateY(-2px); box-shadow: 0 8px 32px rgba(100,220,200,0.25); }
-  .btn-secondary {
-    display: inline-flex; align-items: center; gap: 10px; padding: 14px 28px;
-    background: transparent; color: var(--text);
-    font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
-    border: 1px solid var(--border); cursor: pointer; transition: all 0.25s;
-  }
-  .btn-secondary:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.ibtn{width:72px;height:72px;border:1px solid var(--ink);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;transition:background-color .2s,color .2s,transform .2s}.ibtn:hover{background:var(--ink);color:var(--bg);transform:translateY(-2px)}.ibtn svg{width:22px;height:22px}
+.soc{display:flex;justify-content:flex-start;gap:94px;padding-left:98px}@media(max-width:860px){.soc{padding-left:0;gap:40px}}.btn.ic{display:inline-flex;align-items:center;gap:10px}.ft .wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}.fsoc{margin-left:auto;display:flex;gap:16px}.fsoc a{display:inline-flex;color:var(--mute);transition:color .2s}.fsoc a:hover{color:var(--ink)}
+.sh.sub{margin:48px 0 20px}.sh.sub .ey{margin:0}.members .card{padding:24px}.members .ph{width:60px;height:60px;font-size:21px}.members h3{font-size:23px}
+.hd{transition:box-shadow .3s ease,background-color .3s ease}.hd.sc{box-shadow:0 1px 0 var(--line),0 8px 24px -16px rgba(0,0,0,.25)}
+.js .rv{opacity:0;transform:translateY(18px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js .rv.in{opacity:1;transform:none}
+.card{transition:border-color .25s ease,transform .25s ease,box-shadow .25s ease}.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px -22px rgba(0,0,0,.35)}
+.btn{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}.btn:active{transform:scale(.98)}
+.menu a{transition:border-color .2s ease}.tl li{transition:background-color .25s ease,padding-left .25s ease}.tl li:hover{padding-left:12px}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.card:hover{transform:none}.tl li:hover{padding-left:0}}
 
-  /* STATS */
-  .stats { display: flex; flex-wrap: wrap; background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .stat { flex: 1; min-width: 200px; padding: 36px 48px; border-right: 1px solid var(--border); }
-  .stat:last-child { border-right: none; }
-  .stat-num { font-family: 'DM Mono', monospace; font-size: 26px; color: var(--accent); line-height: 1.2; }
-  .stat-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.08em; color: var(--text-muted); margin-top: 8px; }
+.whero{padding:80px 0 60px}.whero h1{font-size:clamp(40px,5.6vw,80px)}.whero .ey{margin-bottom:22px}
+.mini{border-bottom:1px solid var(--line)}.minigrid{display:grid;grid-template-columns:repeat(4,1fr)}
+.minigrid a{display:flex;flex-direction:column;gap:4px;padding:26px 24px;border-left:1px solid var(--line);transition:background-color .25s}.minigrid a:first-child{border-left:0;padding-left:0}.minigrid a:hover{background:var(--alt)}
+.minigrid b{font:400 22px var(--serif);color:var(--mute)}.minigrid span{font-weight:500;line-height:1.3}.minigrid i{font-style:normal;font-size:13px;color:var(--mute)}
+.serie-top{display:grid;grid-template-columns:1.3fr 1fr;gap:60px;align-items:start;margin-bottom:64px}.serie-top .lead{margin-top:20px}
+.med{align-items:flex-start}.med small{display:block;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:6px}.med h3{font-size:26px;margin-bottom:6px}.med p{font-size:14px}
+img.ph{object-fit:cover;object-position:center top;background:var(--alt)}
+.ep{display:grid;grid-template-columns:260px 1fr auto;gap:40px;padding:40px 0;border-top:1px solid var(--line);align-items:start}.ep:last-child{border-bottom:1px solid var(--line)}
+.epg{display:flex;flex-direction:column;gap:16px}.epg img{width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:center top}.epg h4{font:400 24px var(--serif)}.epg small{display:block;color:var(--mute);font-size:13px;line-height:1.5;margin-top:4px}
+.epc h3{font-size:clamp(26px,3vw,36px);margin:6px 0 8px}.epc em{display:block;color:var(--mute);font-style:italic;margin-bottom:14px}.epc p{color:var(--mute);max-width:44em}.epc .chips{margin-top:20px}
+.btn.off{opacity:.55;pointer-events:none}
+@media(max-width:860px){.minigrid{grid-template-columns:1fr 1fr}.minigrid a:nth-child(3){border-left:0;padding-left:0}.minigrid a{border-top:1px solid var(--line)}.serie-top{grid-template-columns:1fr;gap:32px}.ep{grid-template-columns:1fr;gap:20px}}
 
-  /* SECTION BASE */
-  .section-label {
-    font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em;
-    text-transform: uppercase; color: var(--accent); margin-bottom: 20px;
-    display: flex; align-items: center; gap: 12px;
-  }
-  .section-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--accent); }
-  .section-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: clamp(34px, 4vw, 52px); font-weight: 300; line-height: 1.1; max-width: 660px;
-  }
-  .section-title em { font-style: italic; color: var(--gold); }
+.pf{background:none;border:0;border-bottom:1px solid var(--ink);padding:0 0 2px;font:500 14px var(--sans);cursor:pointer;color:var(--ink);align-self:flex-start;margin-top:6px}.pf:hover{opacity:.6}
+.gm{border:1px solid var(--line);padding:0;background:var(--bg);color:var(--ink);width:min(680px,calc(100% - 32px));max-height:88vh;border-radius:var(--r)}.gm::backdrop{background:rgba(17,17,17,.55)}
+.gm-panel{padding:36px;position:relative}.gm-close{position:absolute;right:18px;top:14px;background:none;border:0;font-size:20px;cursor:pointer;color:var(--ink)}
+.gm-head{display:flex;gap:22px;align-items:center;margin-bottom:22px}.gm-photo{width:96px;height:96px;border-radius:50%;object-fit:cover;object-position:center top}.gm-head h3{font-size:30px;margin:4px 0}.gm-role{color:var(--mute);font-size:14px}
+.gm-lead{margin-bottom:22px}.gm-list{margin:12px 0 0;padding-left:20px;color:var(--mute)}.gm-list li{margin-bottom:8px}.gm-foot{margin-top:26px}.gm-foot a{border-bottom:1px solid var(--ink);padding-bottom:2px;font-weight:500}
+</style></head><body>
+<div class="topbar">Comissão de Blockchain, Criptoativos e Tokenização · OAB Minas Gerais</div>
+<header class="hd"><div class="wrap hdin">
+ <a class="brand" href="/"><span class="bm">OAB/MG</span><span class="bt">Comissão de Blockchain,<br>Criptoativos e Tokenização</span></a>
+ <div class="menu" role="navigation"><a href="/#inicio">Início</a><a href="/#glossario">Glossário</a><a href="/#temas">Temas</a><a href="/#comissao">A Comissão</a><a href="/projetos">Webserie</a><a href="/blog.html">Blog</a></div>
+ <a class="btn dark" href="#contato">Fale com a Comissão</a></div></header>
 
-  /* SERIES */
-  #serie { padding: 100px 48px; }
-  .episodes {
-    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
-    margin-top: 64px; border: 1px solid var(--border); background: var(--border);
-  }
-  .ep { background: var(--bg); padding: 0 0 40px; position: relative; overflow: hidden; }
-  .ep-media { position: relative; aspect-ratio: 16/9; background: var(--bg2); overflow: hidden; border-bottom: 1px solid var(--border); }
-  .ep-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center 20%; filter: grayscale(1) contrast(1.05); opacity: .6; }
-  .ep-media .grid-fill { position: absolute; inset: 0; background-image: linear-gradient(rgba(100,220,200,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(100,220,200,0.05) 1px,transparent 1px); background-size: 32px 32px; }
-  .ep-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(8,12,16,.1) 0%, rgba(8,12,16,.8) 100%); }
-  .ep-dur { position: absolute; top: 16px; right: 16px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.08em; padding: 4px 9px; border: 1px solid var(--border-accent); color: var(--accent); background: var(--accent-glow); }
-  .ep-play { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
-  .ep-play .ring { width: 62px; height: 62px; border-radius: 50%; border: 1px solid rgba(100,220,200,0.45); background: rgba(8,12,16,.55); display: flex; align-items: center; justify-content: center; }
-  .ep-play .tri { width: 0; height: 0; border-style: solid; border-width: 9px 0 9px 15px; border-color: transparent transparent transparent var(--accent); margin-left: 4px; }
-  .ep-tbd { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
-  .ep-tbd .circle { width: 82px; height: 82px; border-radius: 50%; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; }
-  .ep-tbd .circle span { font-family: 'DM Mono', monospace; font-size: 9px; line-height: 1.4; color: var(--text-dim); letter-spacing: 0.08em; text-align: center; }
-  .ep-body { padding: 40px 40px 0; }
-  .ep-num { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 20px; }
-  .ep-title { font-family: 'Cormorant Garamond', serif; font-size: 30px; font-weight: 400; line-height: 1.15; margin-bottom: 8px; }
-  .ep-sub { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--accent); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; }
-  .ep-desc { font-size: 14px; color: var(--text-muted); line-height: 1.75; margin-bottom: 24px; }
-  .ep-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 28px; }
-  .ep-tag { font-family: 'DM Mono', monospace; font-size: 10px; padding: 3px 8px; border: 1px solid var(--border-accent); color: var(--accent); letter-spacing: 0.05em; background: rgba(100,220,200,0.04); }
-  .ep-foot { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-top: 20px; border-top: 1px solid var(--border); }
-  .ep-guest { display: flex; align-items: center; gap: 12px; }
-  .ep-guest img { width: 38px; height: 38px; border-radius: 50%; object-fit: cover; flex: none; border: 1px solid var(--border-accent); }
-  .ep-guest .avatar-empty { width: 38px; height: 38px; border-radius: 50%; flex: none; border: 1px solid var(--border); background: var(--bg2); }
-  .ep-guest .name { font-size: 13.5px; font-weight: 600; color: var(--text); line-height: 1.3; }
-  .ep-guest .role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.06em; margin-top: 3px; }
-  .ep-cta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); flex: none; }
-  .ep-cta.soon { color: var(--text-dim); }
 
-  /* COMISSÃO */
-  #comissao { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 100px 48px; display: flex; align-items: center; gap: 80px; flex-wrap: wrap; }
-  .comissao-text { flex: 1; min-width: 300px; }
-  .comissao-body { font-size: 15px; color: var(--text-muted); line-height: 1.8; margin-top: 28px; max-width: 520px; }
-  .comissao-cta { display: flex; flex-direction: column; gap: 12px; max-width: 360px; margin-top: 40px; }
-  .cta-link { display: flex; align-items: center; gap: 14px; padding: 16px 20px; border: 1px solid var(--border); text-decoration: none; color: var(--text); font-size: 13px; font-weight: 500; transition: all 0.25s; background: var(--surface); }
-  .cta-link:hover { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); transform: translateX(4px); }
-  .comissao-emblem { flex: 0 0 380px; display: flex; flex-direction: column; align-items: center; gap: 20px; text-align: center; }
-  .emblem-ring { width: 160px; height: 160px; border-radius: 50%; border: 1px solid var(--border-accent); display: flex; align-items: center; justify-content: center; position: relative; box-shadow: 0 0 40px var(--accent-glow); animation: pulseRing 4s ease-in-out infinite; }
-  .emblem-ring::before { content: ''; position: absolute; inset: 12px; border-radius: 50%; border: 1px solid var(--border); }
-  .emblem-inner { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 300; color: var(--accent); }
-  .emblem-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; }
+<section class="hero whero"><div class="wrap herogrid">
+ <div><span class="ey">Série de entrevistas · 2026</span><h1>Webserie: o ecossistema dos Ativos Virtuais.</h1></div>
+ <div class="herod"><p>Entrevistas em vídeo com especialistas convidados que analisam a regulação brasileira dos ativos virtuais: como o ordenamento trata o tema, onde estão os desafios de aplicação e o que está em discussão.</p>
+ <div class="btns"><a class="btn dark" href="#serie">Ver a série</a><a class="btn line" href="/#comissao">Sobre a Comissão</a></div></div>
+</div></section>
 
-  /* FOOTER */
-  footer { background: var(--bg); border-top: 1px solid var(--border); padding: 48px 48px 32px; }
-  .footer-top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 40px; border-bottom: 1px solid var(--border); flex-wrap: wrap; gap: 40px; }
-  .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 300; line-height: 1.3; max-width: 280px; }
-  .footer-brand span { display: block; font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 6px; }
-  .footer-links { display: flex; gap: 64px; flex-wrap: wrap; }
-  .footer-col h4 { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 16px; }
-  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-  .footer-col a, .footer-col span { font-size: 13px; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-  .footer-col a:hover { color: var(--accent); }
-  .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 16px; }
-  .footer-disclaimer { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); line-height: 1.6; max-width: 520px; }
-  .footer-copy { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-dim); }
+<section class="mini"><div class="wrap minigrid"><a href="#ep1"><b>01</b><span>Ativos Virtuais &amp; PSAVs</span><i>Lucas Carapiá</i></a><a href="#ep2"><b>02</b><span>Stablecoins &amp; Pagamentos Internacionais</span><i>Raphael Noronha</i></a><a href="#ep3"><b>03</b><span>Compliance, Travel Rule &amp; Controles Regulatórios</span><i>Evan Carneiro</i></a><a href="#ep4"><b>04</b><span>Autorização e Transição das PSAVs</span><i>Miris Bensiman</i></a></div></section>
 
-  /* ANIMATIONS */
-  @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  @keyframes pulseRing { 0%, 100% { box-shadow: 0 0 40px var(--accent-glow); } 50% { box-shadow: 0 0 60px rgba(100,220,200,0.18); } }
-  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.7s ease, transform 0.7s ease; }
-  .reveal.visible { opacity: 1; transform: translateY(0); }
-
-  @media (max-width: 900px) {
-    nav { padding: 0 24px; }
-    .nav-links { display: none; }
-    #hero { padding: 120px 24px 60px; }
-    #serie, #comissao { padding: 72px 24px; }
-    .episodes { grid-template-columns: 1fr; }
-    .stat { padding: 28px 24px; }
-    #comissao { gap: 48px; }
-    .comissao-emblem { flex: 0 0 100%; }
-    footer { padding: 48px 24px 32px; }
-    .footer-top { flex-direction: column; }
-  }
-
-  /* HAMBURGER */
-  .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 4px; z-index: 110; }
-  .hamburger span { display: block; width: 24px; height: 1.5px; background: var(--text); transition: all 0.3s; }
-  .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-  .hamburger.open span:nth-child(2) { opacity: 0; }
-  .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
-
-  /* MOBILE MENU */
-  .mobile-menu { display: none; position: fixed; top: 0; right: 0; width: 280px; height: 100vh; background: var(--bg2); border-left: 1px solid var(--border); z-index: 200; flex-direction: column; padding: 80px 40px 40px; transform: translateX(100%); transition: transform 0.35s ease; }
-  .mobile-menu.open { transform: translateX(0); }
-  .mobile-menu ul { list-style: none; display: flex; flex-direction: column; gap: 0; }
-  .mobile-menu ul li { border-bottom: 1px solid var(--border); }
-  .mobile-menu ul a { display: block; padding: 18px 0; font-family: 'Syne', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); text-decoration: none; transition: color 0.2s; }
-  .mobile-menu ul a:hover, .mobile-menu ul a.active { color: var(--accent); }
-  .mobile-menu ul a.mobile-blog { color: var(--accent); }
-  .mobile-menu-close { position: absolute; top: 24px; right: 24px; background: none; border: none; color: var(--text-muted); font-size: 20px; cursor: pointer; transition: color 0.2s; }
-  .mobile-menu-close:hover { color: var(--accent); }
-  .mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 190; backdrop-filter: blur(4px); }
-  .mobile-overlay.open { display: block; }
-  @media (max-width: 900px) { .hamburger { display: flex; } .mobile-menu { display: flex; } }
-
-  /* episódios: 4 colunas, retrato redondo */
-  .episodes { grid-template-columns: repeat(4, 1fr); }
-  .ep { padding: 0 0 32px; display: flex; flex-direction: column; }
-  .ep-top { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 18px; padding: 36px 24px 28px; min-height: 322px; justify-content: flex-start; border-bottom: 1px solid var(--border); }
-  .ep-avatar { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; object-position: center 18%; flex: none; border: 1px solid var(--border-accent); box-shadow: 0 0 0 6px var(--accent-glow); filter: grayscale(1) contrast(1.05); opacity: .9; transition: filter .4s, opacity .4s; }
-  .ep:hover .ep-avatar { filter: none; opacity: 1; }
-  .ep-who .name { font-size: 17px; font-weight: 600; color: var(--text); line-height: 1.3; }
-  .ep-who .role { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--text-muted); letter-spacing: 0.04em; margin-top: 6px; line-height: 1.6; max-width: 240px; margin-left: auto; margin-right: auto; }
-  .ep-body { padding: 28px 28px 0; display: flex; flex-direction: column; flex: 1; }
-  .ep-meta { display: flex; align-items: center; justify-content: space-between; margin-bottom: 18px; }
-  .ep-meta .ep-num { margin: 0; }
-  .ep-dur { position: static; }
-  .ep-title { font-size: 26px; }
-  .ep-desc { font-size: 13.5px; }
-  .ep-foot { margin-top: auto; padding-top: 18px; justify-content: flex-start; }
-  @media (max-width: 1200px) { .episodes { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 900px) { .episodes { grid-template-columns: 1fr; } }
-  /* cabeçalho da série */
-  #serie { padding: 72px 48px 100px; }
-  .serie-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 32px; flex-wrap: wrap; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
-  .serie-head .section-label { margin-bottom: 14px; }
-  .serie-head .section-title { max-width: none; font-size: clamp(32px, 3.6vw, 48px); white-space: nowrap; }
-  .serie-note { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); text-align: right; line-height: 1.8; }
-  .serie-note b { color: var(--accent); font-weight: 400; }
-  .episodes { margin-top: 40px; }
-  @media (max-width: 900px) { #serie { padding: 56px 24px 72px; } .serie-head .section-title { white-space: normal; } .serie-note { text-align: left; } }
-  .serie-lead { max-width: 460px; font-size: 14.5px; line-height: 1.7; color: var(--text-muted); }
-  .serie-lead strong { color: var(--text); font-weight: 600; }
-  @media (max-width: 900px) { .serie-lead { max-width: none; } }
-  .serie-head { display: block; padding-bottom: 36px; }
-  .serie-head .section-label { margin-bottom: 22px; }
-  .serie-lead { max-width: 920px; font-family: 'Cormorant Garamond', serif; font-size: clamp(22px, 2.4vw, 30px); font-weight: 300; line-height: 1.4; color: var(--text-muted); }
-  .serie-lead strong { color: var(--text); font-weight: 400; }
-  /* mediador */
-  .mediador { display: flex; align-items: center; gap: 36px; padding: 32px 36px; background: var(--bg2); border: 1px solid var(--border); margin-top: 40px; }
-  .med-avatar { width: 148px; height: 148px; border-radius: 50%; object-fit: cover; object-position: center 22%; flex: none; border: 1px solid var(--border-accent); box-shadow: 0 0 0 6px var(--accent-glow); filter: grayscale(1) contrast(1.05); opacity: .92; }
-  .med-label, .convidados-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); }
-  .med-name { font-family: 'Cormorant Garamond', serif; font-size: 34px; font-weight: 400; line-height: 1.15; margin: 8px 0 10px; }
-  .med-role { font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.8; letter-spacing: 0.04em; color: var(--text-muted); max-width: 640px; }
-  .convidados-label { margin: 36px 0 14px; color: var(--text-muted); }
-  .episodes { margin-top: 0; }
-  @media (max-width: 700px) { .mediador { flex-direction: column; text-align: center; padding: 28px 20px; gap: 22px; } }
-  /* mediador ao lado do texto */
-  .serie-head { display: flex; align-items: center; justify-content: space-between; gap: 56px; padding-bottom: 40px; border-bottom: 1px solid var(--border); }
-  .serie-text { flex: 1; min-width: 0; }
-  .serie-head .serie-lead { max-width: 760px; }
-  .mediador { flex: 0 0 auto; width: 420px; display: flex; align-items: center; gap: 22px; padding: 22px 24px; margin: 0; background: var(--bg2); border: 1px solid var(--border); }
-  .med-avatar { width: 96px; height: 96px; box-shadow: 0 0 0 4px var(--accent-glow); }
-  .med-label { font-size: 10px; }
-  .med-name { font-size: 26px; margin: 4px 0 8px; }
-  .med-role { font-size: 10px; line-height: 1.7; letter-spacing: 0.03em; }
-  .episodes { margin-top: 40px; }
-  @media (max-width: 1100px) { .serie-head { flex-direction: column; align-items: flex-start; gap: 32px; } .mediador { width: 100%; max-width: 480px; } }
-  /* card do mediador ampliado */
-  .mediador { width: clamp(470px, 36vw, 640px); gap: 34px; padding: 34px 38px; }
-  .med-avatar { width: 172px; height: 172px; box-shadow: 0 0 0 6px var(--accent-glow); }
-  .med-label { font-size: 11px; }
-  .med-name { font-size: clamp(30px, 2.4vw, 40px); margin: 6px 0 12px; }
-  .med-role { font-size: 12px; line-height: 1.85; letter-spacing: 0.03em; }
-  @media (max-width: 1100px) { .mediador { width: 100%; max-width: 560px; } }
-  @media (max-width: 560px) { .mediador { flex-direction: column; text-align: center; padding: 28px 20px; } .med-avatar { width: 140px; height: 140px; } }
-  /* hero: curvas de nivel interativas */
-  .hero-visual { position: absolute; top: 0; right: 0; bottom: 0; width: 60%; pointer-events: none; z-index: 0;
-    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 94%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-    -webkit-mask-composite: source-in;
-    mask-image: linear-gradient(90deg, transparent 0%, #000 22%, #000 94%, transparent 100%), linear-gradient(180deg, transparent 0%, #000 10%, #000 90%, transparent 100%);
-    mask-composite: intersect; }
-  .hero-visual canvas { width: 100%; height: 100%; display: block; }
-  #hero .hero-tag, #hero .hero-h1, #hero .hero-sub, #hero .hero-actions { position: relative; z-index: 2; }
-  @media (max-width: 900px) { .hero-visual { width: 100%; opacity: .35; } }
-  /* faixa de episodios */
-  html { scroll-padding-top: 88px; }
-  .ep-strip { position: relative; z-index: 1; isolation: isolate; display: grid; grid-template-columns: repeat(4, 1fr); background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .mini { display: flex; align-items: center; gap: 16px; padding: 26px 28px; border-right: 1px solid var(--border); text-decoration: none; color: var(--text); position: relative; transition: background .25s; }
-  .mini:last-child { border-right: none; }
-  .mini::after { content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .35s ease; }
-  .mini:hover { background: var(--accent-glow); }
-  .mini:hover::after { transform: scaleX(1); }
-  .mini-play { flex: none; width: 46px; height: 46px; border-radius: 50%; border: 1px solid rgba(100,220,200,.45); background: rgba(8,12,16,.55); display: flex; align-items: center; justify-content: center; transition: background .25s, border-color .25s; }
-  .mini-play i { width: 0; height: 0; border-style: solid; border-width: 7px 0 7px 11px; border-color: transparent transparent transparent var(--accent); margin-left: 3px; }
-  .mini:hover .mini-play { background: var(--accent); border-color: var(--accent); }
-  .mini:hover .mini-play i { border-left-color: var(--bg); }
-  .mini-body { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
-  .mini-meta { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .12em; color: var(--accent); }
-  .mini-title { font-family: 'Cormorant Garamond', serif; font-size: 20px; line-height: 1.12; color: var(--text); }
-  .mini-guest { display: flex; align-items: center; gap: 8px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .04em; color: var(--text-muted); margin-top: 4px; }
-  .mini-guest img { width: 20px; height: 20px; border-radius: 50%; object-fit: cover; filter: grayscale(1); border: 1px solid var(--border-accent); }
-  .mini-state { position: absolute; top: 12px; right: 14px; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: .12em; text-transform: uppercase; color: var(--accent); }
-  .mini.soon .mini-state { color: var(--text-dim); }
-  .mini.soon .mini-play { border-color: var(--border); }
-  .mini.soon .mini-play i { border-left-color: var(--text-muted); }
-  .ep:target .ep-title { color: var(--accent); }
-  @media (max-width: 1100px) { .ep-strip { grid-template-columns: repeat(2, 1fr); } .mini:nth-child(2) { border-right: none; } .mini:nth-child(-n+2) { border-bottom: 1px solid var(--border); } }
-  @media (max-width: 600px) { .ep-strip { grid-template-columns: 1fr; } .mini { border-right: none; border-bottom: 1px solid var(--border); padding: 20px; } .mini:last-child { border-bottom: none; } }
-  /* convidado clicavel + perfil */
-  button.ep-top { appearance: none; background: none; border: 0; border-bottom: 1px solid var(--border); color: inherit; font: inherit; width: 100%; cursor: pointer; min-height: 340px; transition: background .25s; }
-  button.ep-top:hover, button.ep-top:focus-visible { background: var(--accent-glow); outline: none; }
-  .ep-who { display: block; }
-  .ep-who .name, .ep-who .role { display: block; }
-  .ep-more { margin-top: auto; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); opacity: .75; transition: opacity .25s, letter-spacing .25s; }
-  button.ep-top:hover .ep-more, button.ep-top:focus-visible .ep-more { opacity: 1; letter-spacing: .2em; }
-  dialog.gm { border: 1px solid var(--border-accent); background: var(--bg2); color: var(--text); padding: 0; width: min(740px, calc(100vw - 32px)); max-height: calc(100vh - 40px); overflow: auto; margin: auto; box-shadow: 0 30px 80px rgba(0,0,0,.6); }
-  dialog.gm { scrollbar-width: thin; scrollbar-color: #2c4560 transparent; }
-  dialog.gm[open] { animation: gmIn .32s cubic-bezier(.2,.8,.2,1); }
-  dialog.gm::backdrop { background: rgba(4,7,10,.74); backdrop-filter: blur(6px); }
-  @keyframes gmIn { from { opacity: 0; transform: translateY(14px) scale(.985); } to { opacity: 1; transform: none; } }
-  .gm-panel { position: relative; padding: 40px 44px 30px; }
-  .gm-close { position: absolute; top: 16px; right: 18px; width: 38px; height: 38px; background: none; border: 1px solid var(--border); color: var(--text-muted); font-size: 15px; cursor: pointer; transition: all .2s; }
-  .gm-close:hover, .gm-close:focus-visible { color: var(--accent); border-color: var(--accent); outline: none; }
-  .gm-head { display: flex; align-items: center; gap: 30px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
-  .gm-photo { width: 132px; height: 132px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex: none; filter: grayscale(1) contrast(1.05); border: 1px solid var(--border-accent); box-shadow: 0 0 0 6px var(--accent-glow); }
-  .gm-ep { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--accent); }
-  .gm-name { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 400; line-height: 1.1; margin: 8px 0 8px; }
-  .gm-role { font-family: 'DM Mono', monospace; font-size: 11px; line-height: 1.7; letter-spacing: .03em; color: var(--text-muted); }
-  .gm-body { padding-top: 26px; }
-  .gm-lead { font-size: 16.5px; line-height: 1.7; color: var(--text); }
-  .gm-label { margin: 26px 0 14px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent); display: flex; align-items: center; gap: 12px; }
-  .gm-label::after { content: ''; flex: 1; max-width: 40px; height: 1px; background: var(--accent); }
-  .gm-list { list-style: none; display: flex; flex-direction: column; gap: 11px; }
-  .gm-list li { position: relative; padding-left: 20px; font-size: 14.5px; line-height: 1.6; color: #a9b6c3; }
-  .gm-list li::before { content: ''; position: absolute; left: 0; top: .72em; width: 10px; height: 1px; background: var(--accent2); }
-  .gm-foot { margin-top: 28px; padding-top: 20px; border-top: 1px solid var(--border); }
-  .gm-foot a { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--accent); text-decoration: none; }
-  .gm-foot a:hover { text-decoration: underline; }
-  @media (max-width: 640px) { .gm-panel { padding: 30px 22px 24px; } .gm-head { flex-direction: column; align-items: flex-start; gap: 18px; } .gm-photo { width: 104px; height: 104px; } .gm-name { font-size: 32px; } button.ep-top { min-height: 0; } }
-  /* cartao do mediador: um pouco menor */
-  .mediador { width: clamp(440px, 32vw, 580px); gap: 30px; padding: 30px 34px; }
-  .med-avatar { width: 150px; height: 150px; }
-  .med-name { font-size: clamp(28px, 2.1vw, 36px); margin: 6px 0 10px; }
-  .med-role { font-size: 11.5px; }
-  @media (max-width: 1100px) { .mediador { width: 100%; max-width: 520px; } }
-</style>
-</head>
-<body>
-
-<!-- NAVBAR -->
-<nav id="navbar">
-  <div class="nav-brand">
-    <a href="/">
-      <img src="/logo.png" alt="OAB/MG" class="nav-logo">
-      <div class="nav-title">
-        <span>Comissão de Blockchain, Criptoativos e Tokenização</span>
-        OAB Minas Gerais
-      </div>
-    </a>
-  </div>
-  <ul class="nav-links" id="navLinks">
-    <li><a href="/">Home</a></li>
-    <li><a href="/#glossario">Glossário</a></li>
-    <li><a href="/#temas">Temas</a></li>
-    <li><a href="/#comissao">A Comissão</a></li>
-    <li><a href="/projetos" class="active">Webserie</a></li>
-    <li><a href="/blog.html" class="nav-blog">Blog</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
-
-<!-- Mobile menu overlay -->
-<div class="mobile-menu" id="mobileMenu">
-  <button class="mobile-menu-close" onclick="closeMenu()">✕</button>
-  <ul>
-    <li><a href="/" onclick="closeMenu()">Home</a></li>
-    <li><a href="/#glossario" onclick="closeMenu()">Glossário</a></li>
-    <li><a href="/#temas" onclick="closeMenu()">Temas</a></li>
-    <li><a href="/#comissao" onclick="closeMenu()">A Comissão</a></li>
-    <li><a href="/projetos" class="active" onclick="closeMenu()">Webserie</a></li>
-    <li><a href="/blog.html" class="mobile-blog" onclick="closeMenu()">Blog</a></li>
-  </ul>
+<section id="serie" class="sec"><div class="wrap">
+ <div class="serie-top"><div><span class="ey">A série</span><h2>Quatro episódios sobre o ecossistema.</h2>
+ <p class="lead">Dos fundamentos da tecnologia descentralizada à evolução histórica da regulação, passando por stablecoins e pagamentos, compliance e o regime de autorização das prestadoras.</p></div>
+ <article class="card person med"><img class="ph" src="/assets/verber.jpg" alt="Verber Souza"><div><small>Mediação</small><h3>Verber Souza</h3><p>Vice-Presidente da Comissão de Blockchain da OAB/MG · Head de Digital Assets · Co-founder, Blockchain na Escola · Blockchain researcher</p></div></article></div>
+ <div class="eps2"><article class="ep" id="ep1"><div class="epg"><img src="/assets/lucas.jpg" alt="Lucas Carapiá" loading="lazy"><div><h4>Lucas Carapiá</h4><small>Advogado · Mestre pela UFBA · Chainlink Advocate</small></div><button type="button" class="pf" data-guest="lucas">Ver perfil +</button></div><div class="epc"><span class="ey">Episódio 01 / 04</span><h3>Ativos Virtuais &amp; PSAVs</h3><em>Linha histórica da regulação</em><p>A evolução dos meios de pagamento no Brasil até a chegada dos ativos virtuais: do sistema bancário tradicional ao arcabouço das Resoluções BCB 519, 520 e 521.</p><div class="chips"><span>Lei 14.478/2022</span><span>Res. BCB 520</span></div></div><div class="epa"><a class="btn line off" href="#">Em breve</a></div></article>
+<article class="ep" id="ep2"><div class="epg"><img src="/assets/raphael.jpg" alt="Raphael Noronha" loading="lazy"><div><h4>Raphael Noronha</h4><small>Advogado e professor · Diretoria de Inovação e Tecnologia da OAB/MG</small></div><button type="button" class="pf" data-guest="raphael">Ver perfil +</button></div><div class="epc"><span class="ey">Episódio 02 / 04</span><h3>Stablecoins &amp; Pagamentos Internacionais</h3><em>Cross-border e infraestrutura</em><p>Stablecoins como infraestrutura de pagamento: o conceito adotado pelo Banco Central, o uso em operações cross-border e até onde vai o regime cambial sob as Resoluções 520 e 521, incluindo o debate sobre IOF.</p><div class="chips"><span>Res. BCB 521</span><span>Câmbio</span></div></div><div class="epa"><a class="btn line off" href="#">Em breve</a></div></article>
+<article class="ep" id="ep3"><div class="epg"><img src="/assets/evan.jpg" alt="Evan Carneiro" loading="lazy"><div><h4>Evan Carneiro</h4><small>Advogado e Legal Hacker · CLO na Nautt Finance</small></div><button type="button" class="pf" data-guest="evan">Ver perfil +</button></div><div class="epc"><span class="ey">Episódio 03 / 04</span><h3>Compliance, Travel Rule &amp; Controles Regulatórios</h3><em>Processos, controles e o papel do advogado</em><p>Como as empresas precisarão estruturar processos, políticas e controles internos para atender à Travel Rule e às obrigações de PLD/FT — e o papel do advogado na construção desse arranjo de conformidade.</p><div class="chips"><span>Travel Rule</span><span>PLD/FT</span></div></div><div class="epa"><a class="btn line off" href="#">Em breve</a></div></article>
+<article class="ep" id="ep4"><div class="epg"><img src="/assets/miris.jpg" alt="Miris Bensiman" loading="lazy"><div><h4>Miris Bensiman</h4><small>Presidente da Comissão de Blockchain da OAB/MG · Compliance na Oxus Finance</small></div><button type="button" class="pf" data-guest="miris">Ver perfil +</button></div><div class="epc"><span class="ey">Episódio 04 / 04</span><h3>Autorização e Transição das PSAVs</h3><em>Encerramento da série</em><p>Análise geral dos efeitos da regulação sobre o ecossistema: quem consegue entrar no mercado regulado e como fica a transição das empresas que já operavam antes das novas regras.</p><div class="chips"><span>Res. BCB 519</span><span>Transição</span></div></div><div class="epa"><a class="btn line off" href="#">Em breve</a></div></article>
 </div>
-<div class="mobile-overlay" id="mobileOverlay" onclick="closeMenu()"></div>
+</div></section>
 
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-glow"></div>
-  <div class="hero-glow-2"></div>
-  <div class="hero-visual" aria-hidden="true"><canvas id="heroCanvas"></canvas></div>
-  <div class="hero-tag">Série de entrevistas · 2026</div>
-  <h1 class="hero-h1">Webserie: o ecossistema dos <em>Ativos Virtuais</em>.</h1>
-  <p class="hero-sub">Entrevistas em vídeo com especialistas convidados, dedicadas às Resoluções BCB 519, 520 e 521 e aos seus impactos sobre a prestação de serviços de ativos virtuais no Brasil.</p>
-  <div class="hero-actions">
-    <a href="#serie" class="btn-primary">Ver a série ↓</a>
-    <a href="#comissao" class="btn-secondary">Sobre a Comissão</a>
-  </div>
-</section>
-
-<!-- EPISODIOS (mini cards) -->
-<div class="ep-strip" role="navigation" aria-label="Episódios da webserie">
-  <a class="mini soon" href="#ep1"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 01</span><span class="mini-title">Ativos Virtuais &amp; PSAVs</span><span class="mini-guest"><img src="/assets/lucas.jpg" alt="">Lucas Carapiá</span></span><span class="mini-state">Em breve</span></a>
-  <a class="mini soon" href="#ep2"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 02</span><span class="mini-title">Stablecoins &amp; Pagamentos Internacionais</span><span class="mini-guest"><img src="/assets/raphael.jpg" alt="">Raphael Noronha</span></span><span class="mini-state">Em breve</span></a>
-  <a class="mini soon" href="#ep3"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 03</span><span class="mini-title">Compliance, Travel Rule &amp; Controles Regulatórios</span><span class="mini-guest"><img src="/assets/evan.jpg" alt="">Evan Carneiro</span></span><span class="mini-state">Em breve</span></a>
-  <a class="mini soon" href="#ep4"><span class="mini-play" aria-hidden="true"><i></i></span><span class="mini-body"><span class="mini-meta">EP 04</span><span class="mini-title">Autorização e Transição das PSAVs</span><span class="mini-guest"><img src="/assets/miris.jpg" alt="">Miris Bensiman</span></span><span class="mini-state">Em breve</span></a>
-</div>
-
-<!-- SERIES -->
-<section id="serie">
-  <div class="serie-head">
-    <div class="serie-text">
-      <div class="section-label">A série</div>
-      <p class="serie-lead"><strong>Quatro episódios</strong> sobre o ecossistema de ativos virtuais: dos fundamentos da tecnologia descentralizada à evolução histórica da regulação, passando por stablecoins e pagamentos, compliance e o novo regime de autorização do Banco Central.</p>
-    </div>
-    <aside class="mediador">
-      <img class="med-avatar" src="/assets/verber.jpg" alt="Verber Souza">
-      <div class="med-info">
-        <div class="med-label">Mediação</div>
-        <div class="med-name">Verber Souza</div>
-        <div class="med-role">Vice-Presidente da Comissão de Blockchain da OAB/MG<br>Head de Digital Assets<br>Co-founder, Blockchain na Escola<br>Blockchain researcher</div>
-      </div>
-    </aside>
-  </div>
-
-  <div class="episodes">
-
-    <!-- 01 -->
-
-    <article class="ep reveal" id="ep1">
-      <button type="button" class="ep-top" data-guest="lucas" aria-haspopup="dialog" aria-label="Ver o perfil de Lucas Carapiá">
-        <img class="ep-avatar" src="/assets/lucas.jpg" alt="Lucas Carapiá">
-        <span class="ep-who"><span class="name">Lucas Carapiá</span><span class="role">Advogado · Mestre pela UFBA · Chainlink Advocate</span></span>
-        <span class="ep-more">Ver perfil +</span>
-      </button>
-      <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 01 / 04</span></div>
-        <h3 class="ep-title">Ativos Virtuais &amp; PSAVs</h3>
-        <div class="ep-sub">Linha histórica da regulação</div>
-        <p class="ep-desc">A evolução dos meios de pagamento no Brasil até a chegada dos ativos virtuais: do sistema bancário tradicional ao arcabouço das Resoluções BCB 519, 520 e 521.</p>
-        <div class="ep-tags">
-          <span class="ep-tag">Lei 14.478/2022</span>
-          <span class="ep-tag">Res. BCB 520</span>
-        </div>
-        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
-      </div>
-    </article>
-
-    <article class="ep reveal" id="ep2">
-      <button type="button" class="ep-top" data-guest="raphael" aria-haspopup="dialog" aria-label="Ver o perfil de Raphael Noronha">
-        <img class="ep-avatar" src="/assets/raphael.jpg" alt="Raphael Noronha">
-        <span class="ep-who"><span class="name">Raphael Noronha</span><span class="role">Advogado e professor · Diretoria de Inovação e Tecnologia da OAB/MG</span></span>
-        <span class="ep-more">Ver perfil +</span>
-      </button>
-      <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 02 / 04</span></div>
-        <h3 class="ep-title">Stablecoins &amp; Pagamentos Internacionais</h3>
-        <div class="ep-sub">Cross-border e infraestrutura</div>
-        <p class="ep-desc">Stablecoins como infraestrutura de pagamento: o conceito adotado pelo Banco Central, o uso em operações cross-border e até onde vai o regime cambial sob as Resoluções 520 e 521, incluindo o debate sobre IOF.</p>
-        <div class="ep-tags">
-          <span class="ep-tag">Res. BCB 521</span>
-          <span class="ep-tag">Câmbio</span>
-        </div>
-        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
-      </div>
-    </article>
-
-    <article class="ep reveal" id="ep3">
-      <button type="button" class="ep-top" data-guest="evan" aria-haspopup="dialog" aria-label="Ver o perfil de Evan Carneiro">
-        <img class="ep-avatar" src="/assets/evan.jpg" alt="Evan Carneiro">
-        <span class="ep-who"><span class="name">Evan Carneiro</span><span class="role">Advogado e Legal Hacker · CLO na Nautt Finance</span></span>
-        <span class="ep-more">Ver perfil +</span>
-      </button>
-      <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 03 / 04</span></div>
-        <h3 class="ep-title">Compliance, Travel Rule &amp; Controles Regulatórios</h3>
-        <div class="ep-sub">Processos, controles e o papel do advogado</div>
-        <p class="ep-desc">Como as empresas precisarão estruturar processos, políticas e controles internos para atender à Travel Rule e às obrigações de PLD/FT — e o papel do advogado na construção desse arranjo de conformidade.</p>
-        <div class="ep-tags">
-          <span class="ep-tag">Travel Rule</span>
-          <span class="ep-tag">PLD/FT</span>
-        </div>
-        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
-      </div>
-    </article>
-
-    <article class="ep reveal" id="ep4">
-      <button type="button" class="ep-top" data-guest="miris" aria-haspopup="dialog" aria-label="Ver o perfil de Miris Bensiman">
-        <img class="ep-avatar" src="/assets/miris.jpg" alt="Miris Bensiman">
-        <span class="ep-who"><span class="name">Miris Bensiman</span><span class="role">Presidente da Comissão de Blockchain da OAB/MG · Compliance na Oxus Finance</span></span>
-        <span class="ep-more">Ver perfil +</span>
-      </button>
-      <div class="ep-body">
-        <div class="ep-meta"><span class="ep-num">EPISÓDIO 04 / 04</span></div>
-        <h3 class="ep-title">Autorização e Transição das PSAVs</h3>
-        <div class="ep-sub">Encerramento da série</div>
-        <p class="ep-desc">Análise geral dos efeitos da regulação sobre o ecossistema: quem consegue entrar no mercado regulado e como fica a transição das empresas que já operavam antes das novas regras.</p>
-        <div class="ep-tags">
-          <span class="ep-tag">Res. BCB 519</span>
-          <span class="ep-tag">Transição</span>
-        </div>
-        <div class="ep-foot"><span class="ep-cta soon">Em breve</span></div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-<!-- COMISSÃO -->
-<section id="comissao">
-  <div class="comissao-text">
-    <div class="section-label">A Comissão</div>
-    <h2 class="section-title">Direito aplicado a <em>tecnologias distribuídas</em>.</h2>
-    <p class="comissao-body">Órgão temático da OAB/MG dedicado ao estudo, à difusão e ao debate sobre blockchain, criptoativos e tokenização. Esta série integra a frente de comunicação da Comissão sobre o novo arcabouço regulatório brasileiro.</p>
-    <div class="comissao-cta">
-      <a href="mailto:comissao.blockchain@oabmg.org.br" class="cta-link">✉ Fale com a Comissão</a>
-    </div>
-  </div>
-  <div class="comissao-emblem">
-    <div class="emblem-ring"><div class="emblem-inner">04</div></div>
-    <div class="emblem-label">Encontros gravados</div>
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">Comissão de Blockchain, Criptoativos e Tokenização<span>OAB · Minas Gerais</span></div>
-    <div class="footer-links">
-      <div class="footer-col">
-        <h4>Série</h4>
-        <ul>
-          <li><span>Ativos Virtuais &amp; PSAVs</span></li>
-          <li><span>Stablecoins &amp; Pagamentos Internacionais</span></li>
-          <li><span>Compliance, Travel Rule &amp; Controles</span></li>
-          <li><span>Autorização e Transição das PSAVs</span></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Comissão</h4>
-        <ul>
-          <li><a href="/#marco">Marco Legal</a></li>
-          <li><a href="/#temas">Temas</a></li>
-          <li><a href="/blog.html">Blog</a></li>
-          <li><a href="mailto:comissao.blockchain@oabmg.org.br">Contato</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <div class="footer-disclaimer">Este material tem caráter informativo e educacional. Não constitui parecer jurídico nem manifestação oficial da OAB/MG.</div>
-    <div class="footer-copy">© 2026 OAB/MG</div>
-  </div>
-</footer>
-
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  window.addEventListener('scroll', () => {
-    document.getElementById('navbar').style.borderBottomColor =
-      window.scrollY > 60 ? 'rgba(100,220,200,0.1)' : 'rgba(255,255,255,0.07)';
-  });
-
-  function toggleMenu() {
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('mobileOverlay');
-    const btn = document.getElementById('hamburger');
-    const isOpen = menu.classList.contains('open');
-    if (isOpen) {
-      menu.classList.remove('open');
-      overlay.classList.remove('open');
-      btn.classList.remove('open');
-    } else {
-      menu.classList.add('open');
-      overlay.classList.add('open');
-      btn.classList.add('open');
-    }
-  }
-  function closeMenu() {
-    document.getElementById('mobileMenu').classList.remove('open');
-    document.getElementById('mobileOverlay').classList.remove('open');
-    document.getElementById('hamburger').classList.remove('open');
-  }
-</script>
-
-<script>(function(){
-  var cv=document.getElementById('heroCanvas'), hero=document.getElementById('hero'); if(!cv||!hero) return;
-  var ctx=cv.getContext('2d'), TEAL='100,220,200', GOLD='201,169,110', INK='232,237,242', SLATE='150,172,190';
-  var MONO='"DM Mono", ui-monospace, monospace', SERIF='"Cormorant Garamond", Georgia, serif';
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var W=0,H=0,T=0,last=0,visible=true,cs=10,gx=0,gy=0,f=null,mx=-999,my=-999;
-  var mouse={cx:-999,cy:-999};
-  var SEG=[[],[[3,0]],[[0,1]],[[3,1]],[[1,2]],[[3,0],[1,2]],[[0,2]],[[3,2]],[[2,3]],[[0,2]],[[0,1],[2,3]],[[1,2]],[[1,3]],[[0,1]],[[3,0]],[]];
-  var ANCH=[
-    {l:'PSAV',tag:'LEI 14.478',x:.30,y:.30},{l:'Autorização',tag:'RES. BCB 519',x:.62,y:.20},{l:'Transição',tag:'RES. BCB 519',x:.86,y:.36},
-    {l:'Stablecoins',tag:'RES. BCB 520',x:.76,y:.70},{l:'Compliance',tag:'PLD/FT',x:.50,y:.82},{l:'Travel Rule',tag:'GAFI',x:.28,y:.66},
-    {l:'Tokenização',tag:'CVM · BCB',x:.42,y:.12},{l:'Ativos Virtuais',tag:'LEI 14.478',x:.54,y:.50}
-  ];
-  function lbl(t,x,y,font,fill,al){ ctx.font=font; ctx.fillStyle=fill; ctx.textAlign=al||'left'; ctx.fillText(t,x,y); }
-  function resize(){
-    var r=cv.getBoundingClientRect(), dpr=Math.min(window.devicePixelRatio||1,2);
-    W=r.width; H=r.height; cv.width=Math.round(W*dpr); cv.height=Math.round(H*dpr); ctx.setTransform(dpr,0,0,dpr,0,0);
-    cs=W<600?12:10; gx=Math.ceil(W/cs)+2; gy=Math.ceil(H/cs)+2; f=new Float32Array(gx*gy);
-    if(reduce) frame(0,6);
-  }
-  function step(dt){
-    var none=mouse.cx<-900, tx=none?W*.62:mouse.cx, ty=none?H*.5:mouse.cy;
-    if(mx<-900){ mx=tx; my=ty; } else { var k=Math.min(1,dt*5); mx+=(tx-mx)*k; my+=(ty-my)*k; }
-  }
-  function draw(){
-    if(!f) return; ctx.clearRect(0,0,W,H);
-    var k=Math.min(1,T/1.4), t=T, i, j, li;
-    for(j=0;j<gy;j++){ var y=j*cs; for(i=0;i<gx;i++){ var x=i*cs;
-      var v=Math.sin(x*.0105+t*.11)+Math.sin(y*.0125-t*.09)+Math.sin((x*.6+y)*.0072+t*.07)+.7*Math.sin(Math.hypot(x-W*.62,y-H*.5)*.0115-t*.14);
-      var dx=x-mx, dy=y-my; v+=2.1*Math.exp(-(dx*dx+dy*dy)/(2*115*115)); f[j*gx+i]=v; } }
-    ctx.save(); ctx.globalAlpha=k; ctx.lineWidth=1;
-    for(li=0;li<12;li++){ var L=-2.4+li*.45, emph=(li%3===0); ctx.beginPath();
-      for(j=0;j<gy-1;j++){ for(i=0;i<gx-1;i++){
-        var a=f[j*gx+i], b=f[j*gx+i+1], c=f[(j+1)*gx+i+1], d=f[(j+1)*gx+i];
-        var cse=(a>L?1:0)|(b>L?2:0)|(c>L?4:0)|(d>L?8:0); if(cse===0||cse===15) continue;
-        var x0=i*cs, y0=j*cs;
-        var e=[[x0+cs*(L-a)/(b-a),y0],[x0+cs,y0+cs*(L-b)/(c-b)],[x0+cs*(L-d)/(c-d),y0+cs],[x0,y0+cs*(L-a)/(d-a)]];
-        var sg=SEG[cse]; for(var s=0;s<sg.length;s++){ ctx.moveTo(e[sg[s][0]][0],e[sg[s][0]][1]); ctx.lineTo(e[sg[s][1]][0],e[sg[s][1]][1]); } } }
-      ctx.strokeStyle=emph?'rgba('+TEAL+',.30)':'rgba('+SLATE+',.15)'; ctx.stroke(); }
-    var X0=W*.17, X1=W*.94, Y0=H*.14, Y1=H*.88, act=Math.floor(T/2.8)%ANCH.length, fr=(T/2.8)%1; ctx.textBaseline='alphabetic';
-    for(i=0;i<ANCH.length;i++){ var an=ANCH[i], ax=X0+(X1-X0)*an.x, ay=Y0+(Y1-Y0)*an.y;
-      var hov=Math.max(0,1-Math.hypot(ax-mouse.cx,ay-mouse.cy)/170), cyc=(i===act)?Math.pow(Math.sin(Math.PI*fr),.6):0, al=Math.min(1,Math.max(hov,cyc))*k;
-      ctx.globalAlpha=k*.28; ctx.strokeStyle='rgba('+INK+',.9)'; ctx.beginPath(); ctx.moveTo(ax-4,ay); ctx.lineTo(ax+4,ay); ctx.moveTo(ax,ay-4); ctx.lineTo(ax,ay+4); ctx.stroke();
-      if(al>.02){ var left=an.x>.7, lx=ax+(left?-16:16), ta=left?'right':'left'; ctx.globalAlpha=al;
-        ctx.strokeStyle='rgba('+TEAL+',.7)'; ctx.beginPath(); ctx.arc(ax,ay,6,0,6.283); ctx.stroke(); ctx.beginPath(); ctx.moveTo(ax+(left?-6:6),ay); ctx.lineTo(lx+(left?4:-4),ay); ctx.stroke();
-        lbl(an.l,lx,ay-2,'500 17px '+SERIF,'rgba('+INK+',.95)',ta); lbl(an.tag,lx,ay+11,'9px '+MONO,'rgba('+GOLD+',.9)',ta); } }
-    ctx.restore(); ctx.textAlign='left';
-  }
-  function frame(dt,t){ if(t!==undefined) T=t; else T+=dt; step(dt||.016); draw(); }
-  function loop(ts){
-    if(reduce) return;
-    if(!visible||document.hidden){ last=ts; requestAnimationFrame(loop); return; }
-    var dt=Math.min(.05,(ts-last)/1000||0); last=ts; frame(dt); requestAnimationFrame(loop);
-  }
-  hero.addEventListener('mousemove',function(e){ var r=cv.getBoundingClientRect(); mouse.cx=e.clientX-r.left; mouse.cy=e.clientY-r.top; });
-  hero.addEventListener('mouseleave',function(){ mouse.cx=-999; mouse.cy=-999; });
-  if('IntersectionObserver' in window) new IntersectionObserver(function(es){ visible=es[0].isIntersecting; },{threshold:0}).observe(hero);
-  window.addEventListener('resize',resize);
-  resize();
-  (document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(function(){ if(reduce) frame(0,6); else requestAnimationFrame(loop); });
-})();
-</script>
-<!-- PERFIL DO CONVIDADO -->
-<dialog id="guestModal" class="gm" aria-labelledby="gmName">
-  <div class="gm-panel">
-    <button type="button" class="gm-close" id="gmClose" aria-label="Fechar">&#10005;</button>
-    <div class="gm-head">
-      <img class="gm-photo" id="gmPhoto" alt="">
-      <div>
-        <div class="gm-ep" id="gmEp"></div>
-        <h3 class="gm-name" id="gmName"></h3>
-        <div class="gm-role" id="gmRole"></div>
-      </div>
-    </div>
-    <div class="gm-body">
-      <p class="gm-lead" id="gmLead"></p>
-      <div class="gm-label">Trajetória e atuação</div>
-      <ul class="gm-list" id="gmList"></ul>
-    </div>
-    <div class="gm-foot"><a id="gmEpLink" href="#ep1">Ver o episódio &rarr;</a></div>
-  </div>
-</dialog>
-<script>
+<section id="comissao" class="sec alt"><div class="wrap contact">
+ <div><span class="ey">A Comissão</span><h2>Direito aplicado a tecnologias distribuídas.</h2></div>
+ <div><p>Órgão temático da OAB/MG dedicado ao estudo, à difusão e ao debate sobre blockchain, criptoativos e tokenização. Esta série integra a frente de comunicação da Comissão e reúne análises sobre a regulação brasileira do tema.</p></div>
+</div></section>
+<section id="contato" class="sec alt"><div class="wrap contact">
+ <div><span class="ey">Participe</span><h2>Fale com a Comissão.</h2></div>
+ <div><p>Sugestões de pauta, participação em eventos e contato institucional.</p><div class="soc"><a class="ibtn" href="mailto:comissao.blockchain@oabmg.org.br" aria-label="E-mail" title="E-mail"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg></a><a class="ibtn" href="https://www.instagram.com/direitocripto.oabmg/" target="_blank" rel="noopener" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a></div></div>
+</div></section>
+<footer class="ft"><div class="wrap disc">Este material tem caráter informativo e educacional, produzido pela Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG. Não constitui parecer jurídico nem substitui consulta profissional especializada.</div><div class="wrap">Comissão de Blockchain, Criptoativos e Tokenização · OAB/MG &nbsp;·&nbsp; <a href="https://www.oabmg.org.br">oabmg.org.br</a><span class="fsoc"><a href="https://www.instagram.com/direitocripto.oabmg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a><a href="mailto:comissao.blockchain@oabmg.org.br" aria-label="E-mail"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg></a></span></div></footer>
+<dialog id="guestModal" class="gm" aria-labelledby="gmName"><div class="gm-panel">
+<button type="button" class="gm-close" id="gmClose" aria-label="Fechar">&#10005;</button>
+<div class="gm-head"><img class="gm-photo" id="gmPhoto" alt=""><div><div class="ey" id="gmEp"></div><h3 id="gmName"></h3><div class="gm-role" id="gmRole"></div></div></div>
+<p class="gm-lead" id="gmLead"></p><span class="ey">Trajetória e atuação</span><ul class="gm-list" id="gmList"></ul>
+<div class="gm-foot"><a id="gmEpLink" href="#ep1">Ver o episódio &rarr;</a></div></div></dialog><script>
 (function(){
-  var G={"lucas": {"ep": "Episódio 01 · Ativos Virtuais & PSAVs", "epHref": "#ep1", "name": "Lucas Carapiá", "role": "Advogado · Mestre pela UFBA · Chainlink Advocate", "photo": "/assets/lucas.jpg", "lead": "Advogado com experiência em contencioso e consultoria criminal, compliance e programas de PLD/FT, com atuação em investigações (internas e OSINT) e análise de riscos regulatórios.", "items": ["Mestre pela UFBA e professor na Universidade Salvador; integra o corpo docente de cursos de pós-graduação em instituições jurídicas e corporativas", "Foi Professor Substituto na Universidade Federal da Bahia", "Exerceu funções de gestão no Instituto Baiano de Direito Processual Penal (IBADPP), incluindo a Presidência da instituição (2023/2024)", "Atua na regulação de novos negócios digitais e do mercado de criptoativos, com foco em tokenização, governança e conformidade regulatória", "Chainlink Advocate; participa de projetos consultivos e acadêmicos de inovação e infraestrutura Web3"]}, "raphael": {"ep": "Episódio 02 · Stablecoins & Pagamentos Internacionais", "epHref": "#ep2", "name": "Raphael Marques Silva Noronha", "role": "Advogado · OAB/MG 199.080 · Especialista em Direito Empresarial", "photo": "/assets/raphael.jpg", "lead": "Advogado especialista em Direito Empresarial, professor universitário e integrante da Diretoria de Inovação e Tecnologia da OAB/MG.", "items": ["Graduado e pós-graduado em Direito pela PUC Minas", "Especialista em Direito Empresarial", "Professor universitário (atualmente na Anhanguera)", "Diretoria de Inovação e Tecnologia da OAB/MG"]}, "evan": {"ep": "Episódio 03 · Compliance, Travel Rule & Controles Regulatórios", "epHref": "#ep3", "name": "Evan Carneiro", "role": "Advogado e Legal Hacker · CLO na Nautt Finance", "photo": "/assets/evan.jpg", "lead": "Advogado formado pela Universidade Católica de Salvador, pós-graduado em Direito Digital e Legal Hacker, com atuação em Web3, criptoativos e direito cibernético.", "items": ["Secretário Nacional da Comissão de Ativos Digitais da ABA; CLO na Nautt Finance", "Head of Legal na Play 4 Change; time de jurídico da PFP Supply Co.", "Coordenador da Guilda Jurídica da Bankless BR DAO", "Coordenador da subcomissão de Blockchain da Comissão Permanente de Tecnologia da Informação (CPTI) da OAB/BA", "Membro da Comissão Especial de Direito Digital da OAB/BA", "Membro da Comissão Especial de Blockchain e Criptoativos da OAB/SP", "Membro dos Legal Hackers"]}, "miris": {"ep": "Episódio 04 · Autorização e Transição das PSAVs", "epHref": "#ep4", "name": "Miris Bensiman", "role": "Presidente da Comissão de Blockchain da OAB/MG · Compliance na Oxus Finance", "photo": "/assets/miris.jpg", "lead": "Advogada com atuação em ativos virtuais e conformidade regulatória (PLD/FT). Presidente da Comissão de Blockchain da OAB/MG.", "items": ["Presidente da Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG", "Coordenadora de Compliance na Oxus Finance", "Atuação em ativos virtuais e em conformidade regulatória / PLD-FT"]}};
-  var dlg=document.getElementById('guestModal'); if(!dlg||!dlg.showModal) return;
-  var $=function(i){ return document.getElementById(i); };
-  function open(id){
-    var g=G[id]; if(!g) return;
-    $('gmPhoto').src=g.photo; $('gmPhoto').alt=g.name; $('gmEp').textContent=g.ep; $('gmName').textContent=g.name; $('gmRole').textContent=g.role; $('gmLead').textContent=g.lead;
-    var ul=$('gmList'); ul.textContent=''; g.items.forEach(function(t){ var li=document.createElement('li'); li.textContent=t; ul.appendChild(li); });
-    $('gmEpLink').setAttribute('href',g.epHref);
-    dlg.showModal(); dlg.scrollTop=0;
-  }
-  document.querySelectorAll('[data-guest]').forEach(function(b){ b.addEventListener('click',function(){ open(b.getAttribute('data-guest')); }); });
-  $('gmClose').addEventListener('click',function(){ dlg.close(); });
-  $('gmEpLink').addEventListener('click',function(){ dlg.close(); });
-  dlg.addEventListener('click',function(e){ var r=dlg.getBoundingClientRect(); if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom) dlg.close(); });
+var G={"lucas": {"ep": "Episódio 01 · Ativos Virtuais & PSAVs", "epHref": "#ep1", "name": "Lucas Carapiá", "role": "Advogado · Mestre pela UFBA · Chainlink Advocate", "photo": "/assets/lucas.jpg", "lead": "Advogado com experiência em contencioso e consultoria criminal, compliance e programas de PLD/FT, com atuação em investigações (internas e OSINT) e análise de riscos regulatórios.", "items": ["Mestre pela UFBA e professor na Universidade Salvador; integra o corpo docente de cursos de pós-graduação em instituições jurídicas e corporativas", "Foi Professor Substituto na Universidade Federal da Bahia", "Exerceu funções de gestão no Instituto Baiano de Direito Processual Penal (IBADPP), incluindo a Presidência da instituição (2023/2024)", "Atua na regulação de novos negócios digitais e do mercado de criptoativos, com foco em tokenização, governança e conformidade regulatória", "Chainlink Advocate; participa de projetos consultivos e acadêmicos de inovação e infraestrutura Web3"]}, "raphael": {"ep": "Episódio 02 · Stablecoins & Pagamentos Internacionais", "epHref": "#ep2", "name": "Raphael Marques Silva Noronha", "role": "Advogado · OAB/MG 199.080 · Especialista em Direito Empresarial", "photo": "/assets/raphael.jpg", "lead": "Advogado especialista em Direito Empresarial, professor universitário e integrante da Diretoria de Inovação e Tecnologia da OAB/MG.", "items": ["Graduado e pós-graduado em Direito pela PUC Minas", "Especialista em Direito Empresarial", "Professor universitário (atualmente na Anhanguera)", "Diretoria de Inovação e Tecnologia da OAB/MG"]}, "evan": {"ep": "Episódio 03 · Compliance, Travel Rule & Controles Regulatórios", "epHref": "#ep3", "name": "Evan Carneiro", "role": "Advogado e Legal Hacker · CLO na Nautt Finance", "photo": "/assets/evan.jpg", "lead": "Advogado formado pela Universidade Católica de Salvador, pós-graduado em Direito Digital e Legal Hacker, com atuação em Web3, criptoativos e direito cibernético.", "items": ["Secretário Nacional da Comissão de Ativos Digitais da ABA; CLO na Nautt Finance", "Head of Legal na Play 4 Change; time de jurídico da PFP Supply Co.", "Coordenador da Guilda Jurídica da Bankless BR DAO", "Coordenador da subcomissão de Blockchain da Comissão Permanente de Tecnologia da Informação (CPTI) da OAB/BA", "Membro da Comissão Especial de Direito Digital da OAB/BA", "Membro da Comissão Especial de Blockchain e Criptoativos da OAB/SP", "Membro dos Legal Hackers"]}, "miris": {"ep": "Episódio 04 · Autorização e Transição das PSAVs", "epHref": "#ep4", "name": "Miris Bensiman", "role": "Presidente da Comissão de Blockchain da OAB/MG · Compliance na Oxus Finance", "photo": "/assets/miris.jpg", "lead": "Advogada com atuação em ativos virtuais e conformidade regulatória (PLD/FT). Presidente da Comissão de Blockchain da OAB/MG.", "items": ["Presidente da Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG", "Coordenadora de Compliance na Oxus Finance", "Atuação em ativos virtuais e em conformidade regulatória / PLD-FT"]}};
+var dlg=document.getElementById('guestModal');if(!dlg||!dlg.showModal)return;
+var $=function(i){return document.getElementById(i)};
+function open(id){var g=G[id];if(!g)return;
+ $('gmPhoto').src=g.photo;$('gmPhoto').alt=g.name;$('gmEp').textContent=g.ep;$('gmName').textContent=g.name;$('gmRole').textContent=g.role;$('gmLead').textContent=g.lead;
+ var ul=$('gmList');ul.textContent='';g.items.forEach(function(t){var li=document.createElement('li');li.textContent=t;ul.appendChild(li)});
+ $('gmEpLink').setAttribute('href',g.epHref);dlg.showModal();dlg.scrollTop=0}
+document.querySelectorAll('[data-guest]').forEach(function(b){b.addEventListener('click',function(){open(b.getAttribute('data-guest'))})});
+$('gmClose').addEventListener('click',function(){dlg.close()});
+$('gmEpLink').addEventListener('click',function(){dlg.close()});
+dlg.addEventListener('click',function(e){var r=dlg.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dlg.close()});
 })();
-</script>
-</body>
-</html>
+</script><script>
+(function(){
+var d=document.documentElement;d.classList.add('js');
+var els=document.querySelectorAll('h1,.herod,.sh,.card,.tl li,.eps li,.webs>div,.quote,.contact>div,.glintro,.acc,.chips,.ep,.mini a');
+els.forEach(function(el){el.classList.add('rv');var sib=el.parentElement?Array.prototype.indexOf.call(el.parentElement.children,el):0;el.style.setProperty('--d',(Math.min(sib,5)*0.07)+'s')});
+if(!('IntersectionObserver' in window)){els.forEach(function(e){e.classList.add('in')});return}
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+els.forEach(function(e){io.observe(e)});
+var hd=document.querySelector('.hd');function sc(){hd.classList.toggle('sc',scrollY>8)}sc();addEventListener('scroll',sc,{passive:true});
+})();
+</script></body></html>
