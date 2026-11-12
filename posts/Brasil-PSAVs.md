@@ -11,7 +11,6 @@ tags: ["PSAV", "Banco Central", "Resolução 519", "Resolução 520", "Resoluç�
 **Autor:** Verber Souza  
 **Categoria:** Regulação  
 **Publicado originalmente em:** Medium, 20 nov. 2025  
-**Nota:** Este artigo foi desenvolvido como parte do programa *Legal Scholars* da Ethereum Foundation, no contexto do Devcon7, realizado em Bangkok.
 
 ---
 

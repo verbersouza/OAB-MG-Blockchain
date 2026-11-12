@@ -89,18 +89,20 @@ img.ph{object-fit:cover;object-position:center top;background:var(--alt)}
 .status{padding:60px 0;color:var(--mute)}.status.error{color:#8a1c1c}
 .reader{display:none;padding:56px 0 110px}.reader.active{display:block}.hidden{display:none}
 .back{background:none;border:0;border-bottom:1px solid var(--ink);padding:0 0 2px;font:500 14px var(--sans);cursor:pointer;color:var(--ink);margin-bottom:40px}.back:hover{opacity:.6}
-.rhead{max-width:760px}.rhead h1{font-size:clamp(34px,4.6vw,56px);margin:14px 0 18px}.rby{display:flex;gap:18px;color:var(--mute);font-size:14px;margin-bottom:40px;padding-bottom:28px;border-bottom:1px solid var(--line)}
-.pcontent{max-width:760px;font-size:18px;line-height:1.75}.pcontent h1,.pcontent h2,.pcontent h3{font-family:var(--serif);font-weight:400;line-height:1.15;margin:2em 0 .6em}
+.rhead{max-width:none}.rhead h1{font-size:clamp(28px,3.2vw,44px);line-height:1.15;max-width:none;margin:14px 0 18px}.rby{display:flex;gap:18px;color:var(--mute);font-size:14px;margin-bottom:40px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.pcontent{max-width:none;font-size:18px;line-height:1.75}.pcontent h1,.pcontent h2,.pcontent h3,.pcontent h4{max-width:none}.pcontent h1{font-size:clamp(28px,3vw,40px)}.pcontent h1,.pcontent h2,.pcontent h3{font-family:var(--serif);font-weight:400;line-height:1.15;margin:2em 0 .6em}
 .pcontent h2{font-size:34px}.pcontent h3{font-size:26px}.pcontent p{margin:0 0 1.2em}.pcontent ul,.pcontent ol{margin:0 0 1.4em;padding-left:1.3em}.pcontent li{margin-bottom:.4em}
 .pcontent a{border-bottom:1px solid var(--ink)}.pcontent blockquote{margin:1.6em 0;padding:6px 0 6px 24px;border-left:2px solid var(--ink);font-family:var(--serif);font-style:italic;font-size:22px;color:var(--mute)}
 .pcontent table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:15px}.pcontent th,.pcontent td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left;vertical-align:top}.pcontent th{font-weight:600}
 .pcontent code{background:var(--alt);padding:2px 6px;font-size:.9em}.pcontent hr{border:0;border-top:1px solid var(--line);margin:2.4em 0}.pcontent img{max-width:100%}
 @media(max-width:860px){.pcard{grid-template-columns:1fr;gap:12px}.parrow{display:none}}
-.hd .bm{color:#8a1c1c}.hd .btn.dark{background:#8a1c1c;border-color:#8a1c1c;color:#fff}.hd .btn.dark:hover{background:#6e1616;opacity:1}.blogo{height:50px;width:auto;display:block;padding-right:16px;border-right:1px solid var(--line)}@media(max-width:860px){.blogo{height:42px}}</style><link rel="icon" type="image/png" href="/assets/logo-oab-mg.png"></head><body><div class="topbar">Comissão de Blockchain, Criptoativos e Tokenização · OAB Minas Gerais</div>
+.hd .bm{color:#8a1c1c}.hd .btn.dark{background:#8a1c1c;border-color:#8a1c1c;color:#fff}.hd .btn.dark:hover{background:#6e1616;opacity:1}.blogo{height:50px;width:auto;display:block;padding-right:16px;border-right:1px solid var(--line)}@media(max-width:860px){.blogo{height:42px}}.mt{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r);background:transparent;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--ink)}.mt i{display:block;width:20px;height:2px;background:currentColor;transition:transform .25s ease,opacity .2s}.hd.open .mt i:nth-child(1){transform:translateY(7px) rotate(45deg)}.hd.open .mt i:nth-child(2){opacity:0}.hd.open .mt i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.menu .mcta{display:none}
+@media(max-width:860px){.mt{display:inline-flex;margin-left:auto}.hdin>.btn.dark{display:none}.hd{position:sticky}.hd .menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--hd);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -22px rgba(0,0,0,.35);padding:8px 16px 20px;font-size:17px}.hd.open .menu{display:flex}.hd .menu a{padding:15px 0;border-bottom:1px solid var(--line)}.hd .menu .mcta{display:block;margin-top:16px;text-align:center;background:#8a1c1c;color:#fff;border-radius:var(--r);border:0}}
+</style><link rel="icon" type="image/png" href="/assets/logo-oab-mg.png"></head><body><div class="topbar">Comissão de Blockchain, Criptoativos e Tokenização · OAB Minas Gerais</div>
 <header class="hd"><div class="wrap hdin">
  <a class="brand" href="/"><img class="blogo" src="/assets/logo-oab-mg.png" alt="OAB Minas Gerais"><span class="bt">Comissão de Blockchain,<br>Criptoativos e Tokenização</span></a>
- <div class="menu" role="navigation"><a href="/#inicio">Início</a><a href="/#glossario">Glossário</a><a href="/#temas">Temas</a><a href="/#comissao">A Comissão</a><a href="/projetos">Webserie</a><a href="/blog.html" aria-current="page">Blog</a></div>
- <a class="btn dark" href="#contato">Fale com a Comissão</a></div></header><main><div class="wrap"><div id="listView"><section class="bhero"><span class="ey">Blog · Comissão OAB/MG</span><h1>Publicações e análises.</h1></section><div id="postList"></div></div><div class="reader" id="postReader"><button class="back" onclick="showList()">← Voltar ao Blog</button><div class="rhead"><span class="ey" id="readerCategory">Publicação</span><h1 id="readerTitle"></h1><div class="rby"><span id="readerAuthor"></span><span id="readerDate"></span></div></div><div class="pcontent" id="readerContent"></div></div></div></main><footer class="ft"><div class="wrap disc">Este material tem caráter informativo e educacional, produzido pela Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG. Não constitui parecer jurídico nem substitui consulta profissional especializada.</div><div class="wrap">Comissão de Blockchain, Criptoativos e Tokenização · OAB/MG &nbsp;·&nbsp; <a href="https://www.oabmg.org.br">oabmg.org.br</a><span class="fsoc"><a href="https://www.instagram.com/direitocripto.oabmg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a><a href="mailto:comissao.blockchain@oabmg.org.br" aria-label="E-mail"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg></a></span></div></footer><script>var hd=document.querySelector(".hd");function sc(){hd.classList.toggle("sc",scrollY>8)}sc();addEventListener("scroll",sc,{passive:true});</script><script>
+ <div class="menu" role="navigation"><a href="/#inicio">Início</a><a href="/#glossario">Glossário</a><a href="/#temas">Temas</a><a href="/#comissao">A Comissão</a><a href="/projetos">Webserie</a><a href="/blog.html" aria-current="page">Blog</a><a class="mcta" href="#contato">Fale com a Comissão</a></div>
+ <a class="btn dark" href="#contato">Fale com a Comissão</a><button class="mt" type="button" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i><i></i></button></div></header><main><div class="wrap"><div id="listView"><section class="bhero"><span class="ey">Blog · Comissão OAB/MG</span><h1>Publicações e análises.</h1></section><div id="postList"></div></div><div class="reader" id="postReader"><button class="back" onclick="showList()">← Voltar ao Blog</button><div class="rhead"><span class="ey" id="readerCategory">Publicação</span><h1 id="readerTitle"></h1><div class="rby"><span id="readerAuthor"></span><span id="readerDate"></span></div></div><div class="pcontent" id="readerContent"></div></div></div></main><footer class="ft"><div class="wrap disc">Este material tem caráter informativo e educacional, produzido pela Comissão de Blockchain, Criptoativos e Tokenização da OAB/MG. Não constitui parecer jurídico nem substitui consulta profissional especializada.</div><div class="wrap">Comissão de Blockchain, Criptoativos e Tokenização · OAB/MG &nbsp;·&nbsp; <a href="https://www.oabmg.org.br">oabmg.org.br</a><span class="fsoc"><a href="https://www.instagram.com/direitocripto.oabmg/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.3" cy="6.7" r=".6" fill="currentColor"/></svg></a><a href="mailto:comissao.blockchain@oabmg.org.br" aria-label="E-mail"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 7 8.5 6.5L20.5 7"/></svg></a></span></div></footer><script>var hd=document.querySelector(".hd");function sc(){hd.classList.toggle("sc",scrollY>8)}sc();addEventListener("scroll",sc,{passive:true});</script><script>
   const REPO = 'verbersouza/OAB-MG-Blockchain';
   const POSTS_PATH = 'posts';
   const API = `https://api.github.com/repos/${REPO}/contents/${POSTS_PATH}`;
@@ -176,6 +178,8 @@ img.ph{object-fit:cover;object-position:center top;background:var(--alt)}
 
       // Store posts globally for reader
       window.__posts = posts;
+      var hs=decodeURIComponent(location.hash.slice(1));
+      if(hs){var ix=posts.findIndex(function(p){return p.filename===hs});if(ix>=0)openPost(ix);}
 
     } catch (err) {
       container.innerHTML = `<div class="status error">Erro ao carregar publicações.<br><small>${err.message}</small></div>`;
@@ -193,11 +197,10 @@ img.ph{object-fit:cover;object-position:center top;background:var(--alt)}
     document.getElementById('readerCategory').textContent = post.meta.categoria || 'Publicação';
 
     // Remove frontmatter header lines from body before rendering
-    const cleanBody = post.body
-      .replace(/^#\s.*\n/, '')
-      .replace(/^\*\*Autora:\*\*.*\n/m, '')
-      .replace(/^\*\*Categoria:\*\*.*\n/m, '')
-      .replace(/^---\n/m, '')
+    const cleanBody = post.body.trim()
+      .replace(/^#\s.*\n+/, '')
+      .replace(/^(\*\*(Autora?|Categoria):\*\*.*\n+)+/, '')
+      .replace(/^---\s*\n+/, '')
       .trim();
 
     document.getElementById('readerContent').innerHTML = marked.parse(cleanBody);
@@ -217,4 +220,4 @@ img.ph{object-fit:cover;object-position:center top;background:var(--alt)}
 
   // ── Init ──
   loadPosts();
-</script></body></html>
+</script><script>(function(){var h=document.querySelector(".hd"),b=document.querySelector(".mt");if(!b)return;b.addEventListener("click",function(){var o=h.classList.toggle("open");b.setAttribute("aria-expanded",o)});h.querySelectorAll(".menu a").forEach(function(a){a.addEventListener("click",function(){h.classList.remove("open");b.setAttribute("aria-expanded","false")})})})();</script></body></html>

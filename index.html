@@ -59,12 +59,15 @@ img.ph{object-fit:cover;object-position:center top;display:block;background:var(
 .btn{transition:background-color .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}.btn:active{transform:scale(.98)}
 .menu a{transition:border-color .2s ease}.tl li{transition:background-color .25s ease,padding-left .25s ease}.tl li:hover{padding-left:12px}
 @media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none;transition:none}.card:hover{transform:none}.tl li:hover{padding-left:0}}
-.hd .bm{color:#8a1c1c}.hd .btn.dark{background:#8a1c1c;border-color:#8a1c1c;color:#fff}.hd .btn.dark:hover{background:#6e1616;opacity:1}.blogo{height:50px;width:auto;display:block;padding-right:16px;border-right:1px solid var(--line)}@media(max-width:860px){.blogo{height:42px}}</style><link rel="icon" type="image/png" href="/assets/logo-oab-mg.png"></head><body>
+.hd .bm{color:#8a1c1c}.hd .btn.dark{background:#8a1c1c;border-color:#8a1c1c;color:#fff}.hd .btn.dark:hover{background:#6e1616;opacity:1}.blogo{height:50px;width:auto;display:block;padding-right:16px;border-right:1px solid var(--line)}@media(max-width:860px){.blogo{height:42px}}.bgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.bcard{display:flex;flex-direction:column;gap:14px;background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:28px;cursor:pointer;text-decoration:none;color:inherit}.bcard:hover{border-color:var(--ink)}.bcard .bm2{display:flex;justify-content:space-between;align-items:center;font-size:13px;color:var(--mute)}.bcard .btag{border:1px solid var(--ink);color:var(--ink);padding:3px 10px;border-radius:99px;font-size:12px}.bcard h3{font:400 clamp(21px,2vw,26px)/1.25 var(--serif);margin:0}.bcard .ba{margin-top:auto;font-size:14px;color:var(--mute)}.bcard .go{font-size:14px;border-bottom:1px solid var(--ink);align-self:flex-start;padding-bottom:1px}.bmore{margin-top:36px}@media(max-width:860px){.bgrid{grid-template-columns:1fr}}
+.mt{display:none;width:44px;height:44px;border:1px solid var(--line);border-radius:var(--r);background:transparent;cursor:pointer;padding:0;align-items:center;justify-content:center;flex-direction:column;gap:5px;color:var(--ink)}.mt i{display:block;width:20px;height:2px;background:currentColor;transition:transform .25s ease,opacity .2s}.hd.open .mt i:nth-child(1){transform:translateY(7px) rotate(45deg)}.hd.open .mt i:nth-child(2){opacity:0}.hd.open .mt i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}.menu .mcta{display:none}
+@media(max-width:860px){.mt{display:inline-flex;margin-left:auto}.hdin>.btn.dark{display:none}.hd{position:sticky}.hd .menu{display:none;position:absolute;left:0;right:0;top:100%;flex-direction:column;gap:0;background:var(--hd);border-bottom:1px solid var(--line);box-shadow:0 18px 30px -22px rgba(0,0,0,.35);padding:8px 16px 20px;font-size:17px}.hd.open .menu{display:flex}.hd .menu a{padding:15px 0;border-bottom:1px solid var(--line)}.hd .menu .mcta{display:block;margin-top:16px;text-align:center;background:#8a1c1c;color:#fff;border-radius:var(--r);border:0}}
+</style><link rel="icon" type="image/png" href="/assets/logo-oab-mg.png"></head><body>
 <div class="topbar">Comissão de Blockchain, Criptoativos e Tokenização · OAB Minas Gerais</div>
 <header class="hd"><div class="wrap hdin">
  <a class="brand" href="#"><img class="blogo" src="/assets/logo-oab-mg.png" alt="OAB Minas Gerais"><span class="bt">Comissão de Blockchain,<br>Criptoativos e Tokenização</span></a>
- <div class="menu" role="navigation"><a href="#inicio">Início</a><a href="#glossario">Glossário</a><a href="#temas">Temas</a><a href="#comissao">A Comissão</a><a href="/projetos">Webserie</a><a href="/blog.html">Blog</a></div>
- <a class="btn dark" href="#contato">Fale com a Comissão</a></div></header>
+ <div class="menu" role="navigation"><a href="#inicio">Início</a><a href="#glossario">Glossário</a><a href="#temas">Temas</a><a href="#comissao">A Comissão</a><a href="/projetos">Webserie</a><a href="/blog.html">Blog</a><a class="mcta" href="#contato">Fale com a Comissão</a></div>
+ <a class="btn dark" href="#contato">Fale com a Comissão</a><button class="mt" type="button" aria-label="Abrir menu" aria-expanded="false"><i></i><i></i><i></i></button></div></header>
 
 <section id="inicio" class="hero"><div class="wrap herogrid">
  <h1>Onde o direito encontra as tecnologias distribuídas.</h1>
@@ -102,6 +105,8 @@ img.ph{object-fit:cover;object-position:center top;display:block;background:var(
 <article class="card big topic"><small>PSR · Res. BCB 520</small><h3>BaaS · Blockchain as a Service</h3><p>Modelos de negócio que oferecem infraestrutura blockchain como serviço. A Resolução 520 cria a figura do Prestador de Serviços Relevantes (PSR) — categoria que pode enquadrar esses modelos sem exigir licença de PSAV, mas com requisitos próprios.</p><div class="alertbox"><strong>Distinção crítica.</strong> A linha entre PSR e PSAV impacta diretamente as obrigações regulatórias, o capital exigido e a responsabilidade perante o BCB. Provedores de liquidez e formadores de mercado foram explicitamente qualificados como PSR — não como PSAV.</div><p class="ind">→ Enquadramento depende da análise concreta das atividades efetivamente prestadas.</p></article>
 </div></div></section>
 
+<section id="blog" class="sec alt"><div class="wrap"><div class="sh"><span class="ey">Blog</span><h2>Publicações em destaque.</h2><p class="lead">Análises e textos produzidos pelos membros da Comissão.</p></div><div class="bgrid" id="blogDestaque"></div><div class="bmore"><a class="btn dark" href="/blog.html">Ver todas as publicações</a></div></div></section>
+
 <section id="webserie" class="sec dk"><div class="wrap webs">
  <div><span class="ey">Webserie</span><h2>O ecossistema dos Ativos Virtuais.</h2><p>Entrevistas com especialistas que analisam a regulação brasileira dos ativos virtuais.</p><a class="btn inv" href="/projetos">Conheça a série</a></div>
  <ul class="eps"><li><b>01</b>Ativos Virtuais &amp; PSAVs<em>Em breve</em></li><li><b>02</b>Stablecoins &amp; Pagamentos Internacionais<em>Em breve</em></li><li><b>03</b>Compliance, Travel Rule &amp; Controles Regulatórios<em>Em breve</em></li><li><b>04</b>Autorização e Transição das PSAVs<em>Em breve</em></li></ul>
@@ -120,7 +125,6 @@ img.ph{object-fit:cover;object-position:center top;display:block;background:var(
   <article class="card person"><img class="ph" src="/assets/raphael-membro.jpg" alt="Raphael Noronha"><div><h3>Raphael Noronha</h3><p>Membro da Comissão</p></div></article>
   <article class="card person"><img class="ph" src="/assets/elisangela.jpg" alt="Elisangela Menezes"><div><h3>Elisangela Menezes</h3><p>Membro da Comissão</p></div></article>
  </div>
- <blockquote class="quote"><small>Palavras da Presidência</small>[texto da Presidência a inserir]</blockquote>
 </div></section>
 
 <section id="contato" class="sec alt"><div class="wrap contact">
@@ -138,4 +142,16 @@ var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isInter
 els.forEach(function(e){io.observe(e)});
 var hd=document.querySelector('.hd');function sc(){hd.classList.toggle('sc',scrollY>8)}sc();addEventListener('scroll',sc,{passive:true});
 })();
-</script></body></html>
+</script><script>
+(function(){var el=document.getElementById("blogDestaque");if(!el)return;
+function fm(r){var m=r.match(/^---\r?\n([\s\S]*?)\r?\n---/),o={};if(m)m[1].split(/\r?\n/).forEach(function(l){var i=l.indexOf(":");if(i>0)o[l.slice(0,i).trim()]=l.slice(i+1).trim().replace(/^"|"$/g,"")});return o}
+function fd(s){if(!s)return"";var a=s.split("-"),M=["Jan","Fev","Mar","Abr","Mai","Jun","Jul","Ago","Set","Out","Nov","Dez"];return a[2]+" "+M[+a[1]-1]+" "+a[0]}
+function esc(t){var d=document.createElement("div");d.textContent=t||"";return d.innerHTML}
+function fail(){el.innerHTML='<a class="bcard" href="/blog.html"><h3>Acesse as publicações da Comissão.</h3><span class="go">Ir para o blog →</span></a>'}
+fetch("https://api.github.com/repos/verbersouza/OAB-MG-Blockchain/contents/posts").then(function(r){if(!r.ok)throw 0;return r.json()}).then(function(fs){
+fs=fs.filter(function(f){return /\.md$/.test(f.name)});
+return Promise.all(fs.map(function(f){return fetch(f.download_url).then(function(r){return r.text()}).then(function(t){var m=fm(t);m.file=f.name;return m})}))}).then(function(ps){
+ps.sort(function(a,b){return(b.date||"").localeCompare(a.date||"")});ps=ps.slice(0,3);if(!ps.length)return fail();
+el.innerHTML=ps.map(function(p){return'<a class="bcard" href="/blog.html#'+encodeURIComponent(p.file)+'"><div class="bm2"><span>'+fd(p.date)+'</span>'+(p.categoria?'<span class="btag">'+esc(p.categoria)+'</span>':"")+'</div><h3>'+esc(p.title)+'</h3><div class="ba">'+(p.author?"Por "+esc(p.author):"")+'</div><span class="go">Ler →</span></a>'}).join("")}).catch(fail)})();
+</script>
+<script>(function(){var h=document.querySelector(".hd"),b=document.querySelector(".mt");if(!b)return;b.addEventListener("click",function(){var o=h.classList.toggle("open");b.setAttribute("aria-expanded",o)});h.querySelectorAll(".menu a").forEach(function(a){a.addEventListener("click",function(){h.classList.remove("open");b.setAttribute("aria-expanded","false")})})})();</script></body></html>
